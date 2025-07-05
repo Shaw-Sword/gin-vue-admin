@@ -42,9 +42,9 @@ export default ({ mode }) => {
     }
   }
 
-  const base = "/"
-  const root = "./"
-  const outDir = "dist"
+  const base = './' // file协议需要安装index.html的相对位置,不然会读取根目录
+  const root = './'
+  const outDir = 'dist'
 
   const config = {
     base: base, // 编译后js导入的资源路径
@@ -66,18 +66,18 @@ export default ({ mode }) => {
     server: {
       // 如果使用docker-compose开发模式，设置为false
       open: true,
-      port: process.env.VITE_CLI_PORT,
-      proxy: {
-        // 把key的路径代理到target位置
-        // detail: https://cli.vuejs.org/config/#devserver-proxy
-        [process.env.VITE_BASE_API]: {
-          // 需要代理的路径   例如 '/api'
-          target: `${process.env.VITE_BASE_PATH}:${process.env.VITE_SERVER_PORT}/`, // 代理到 目标路径
-          changeOrigin: true,
-          rewrite: (path) =>
-            path.replace(new RegExp('^' + process.env.VITE_BASE_API), '')
-        }
-      }
+      port: process.env.VITE_CLI_PORT
+      // proxy: {
+      //   // 把key的路径代理到target位置
+      //   // detail: https://cli.vuejs.org/config/#devserver-proxy
+      //   [process.env.VITE_BASE_API]: {
+      //     // 需要代理的路径   例如 '/api'
+      //     target: `${process.env.VITE_BASE_PATH}:${process.env.VITE_SERVER_PORT}/`, // 代理到 目标路径
+      //     changeOrigin: true,
+      //     rewrite: (path) =>
+      //       path.replace(new RegExp('^' + process.env.VITE_BASE_API), '')
+      //   }
+      // }
     },
     build: {
       minify: 'terser', // 是否进行压缩,boolean | 'terser' | 'esbuild',默认使用terser
@@ -109,7 +109,13 @@ export default ({ mode }) => {
         ]
       }),
       vuePlugin(),
-      svgBuilder(['./src/plugin/','./src/assets/icons/'],base, outDir,'assets', NODE_ENV),
+      svgBuilder(
+        ['./src/plugin/', './src/assets/icons/'],
+        base,
+        outDir,
+        'assets',
+        NODE_ENV
+      ),
       [Banner(`\n Build based on gin-vue-admin \n Time : ${timestamp}`)],
       VueFilePathPlugin('./src/pathInfo.json')
     ]
