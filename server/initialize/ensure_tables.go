@@ -1,7 +1,8 @@
 package initialize
-/*  2025-10-27
+
 import (
 	"context"
+
 	adapter "github.com/casbin/gorm-adapter/v3"
 	"github.com/flipped-aurora/gin-vue-admin/server/model/example"
 	sysModel "github.com/flipped-aurora/gin-vue-admin/server/model/system"
@@ -111,4 +112,3 @@ func (e *ensureTables) TableCreated(ctx context.Context) bool {
 	}
 	return yes
 }
-*/
