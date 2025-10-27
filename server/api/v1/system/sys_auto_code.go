@@ -1,5 +1,5 @@
 package system
-
+/*  2025-10-27
 import (
 	"fmt"
 	"github.com/flipped-aurora/gin-vue-admin/server/model/common"
@@ -153,3 +153,4 @@ func (autoApi *AutoCodeApi) LLMAuto(c *gin.Context) {
 	}
 	response.OkWithData(resStruct.Data, c)
 }
+*/

@@ -1,5 +1,5 @@
 package system
-
+/*  2025-10-27
 import (
 	"github.com/flipped-aurora/gin-vue-admin/server/global"
 	"github.com/flipped-aurora/gin-vue-admin/server/model/common/response"
@@ -119,3 +119,4 @@ func (a *AutoCodeTemplateApi) AddFunc(c *gin.Context) {
 		response.OkWithMessage("注入成功", c)
 	}
 }
+*/

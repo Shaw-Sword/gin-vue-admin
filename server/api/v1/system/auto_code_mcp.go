@@ -1,5 +1,5 @@
 package system
-
+/*  2025-10-27
 import (
 	"fmt"
 	"github.com/flipped-aurora/gin-vue-admin/server/global"
@@ -142,3 +142,4 @@ func (a *AutoCodeTemplateApi) MCPTest(c *gin.Context) {
 	// 返回结果
 	response.OkWithData(result.Content, c)
 }
+*/

@@ -1,5 +1,5 @@
 package system
-
+/*  2025-10-27
 import (
 	"encoding/json"
 	"fmt"
@@ -484,3 +484,4 @@ func (sysVersionApi *SysVersionApi) ImportVersion(c *gin.Context) {
 
 	response.OkWithMessage("导入成功", c)
 }
+*/

@@ -5,10 +5,11 @@ import (
 	"database/sql"
 	"errors"
 	"fmt"
+	"sort"
+
 	"github.com/flipped-aurora/gin-vue-admin/server/global"
 	"github.com/flipped-aurora/gin-vue-admin/server/model/system/request"
 	"gorm.io/gorm"
-	"sort"
 )
 
 const (
@@ -99,21 +100,21 @@ func (initDBService *InitDBService) InitDB(conf request.InitDB) (err error) {
 	// C必然>A|B，因此在AB之后执行，D必然>A|B|C，因此在ABC后执行，而E只依赖A，顺序与CD无关，因此E与CD哪个先执行并不影响
 	var initHandler TypedDBInitHandler
 	switch conf.DBType {
-	case "mysql":
-		initHandler = NewMysqlInitHandler()
-		ctx = context.WithValue(ctx, "dbtype", "mysql")
-	case "pgsql":
-		initHandler = NewPgsqlInitHandler()
-		ctx = context.WithValue(ctx, "dbtype", "pgsql")
+	// case "mysql":
+	// 	initHandler = NewMysqlInitHandler()
+	// 	ctx = context.WithValue(ctx, "dbtype", "mysql")
+	// case "pgsql":
+	// 	initHandler = NewPgsqlInitHandler()
+	// 	ctx = context.WithValue(ctx, "dbtype", "pgsql")
 	case "sqlite":
 		initHandler = NewSqliteInitHandler()
 		ctx = context.WithValue(ctx, "dbtype", "sqlite")
-	case "mssql":
-		initHandler = NewMssqlInitHandler()
-		ctx = context.WithValue(ctx, "dbtype", "mssql")
+	// case "mssql":
+	// 	initHandler = NewMssqlInitHandler()
+	// 	ctx = context.WithValue(ctx, "dbtype", "mssql")
 	default:
 		initHandler = NewMysqlInitHandler()
-		ctx = context.WithValue(ctx, "dbtype", "mysql")
+		ctx = context.WithValue(ctx, "dbtype", "sqlite")
 	}
 	ctx, err = initHandler.EnsureDB(ctx, &conf)
 	if err != nil {

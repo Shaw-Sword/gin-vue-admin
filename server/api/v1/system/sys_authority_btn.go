@@ -1,5 +1,5 @@
 package system
-
+/*  2025-10-27
 import (
 	"github.com/flipped-aurora/gin-vue-admin/server/global"
 	"github.com/flipped-aurora/gin-vue-admin/server/model/common/response"
@@ -78,3 +78,4 @@ func (a *AuthorityBtnApi) CanRemoveAuthorityBtn(c *gin.Context) {
 	}
 	response.OkWithMessage("删除成功", c)
 }
+*/

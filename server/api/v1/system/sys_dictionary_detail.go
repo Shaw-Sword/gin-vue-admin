@@ -1,5 +1,5 @@
 package system
-
+/*  2025-10-27
 import (
 	"strconv"
 
@@ -265,3 +265,4 @@ func (s *DictionaryDetailApi) GetDictionaryPath(c *gin.Context) {
 	}
 	response.OkWithDetailed(gin.H{"path": path}, "获取成功", c)
 }
+*/

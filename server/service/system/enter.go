@@ -2,24 +2,24 @@ package system
 
 type ServiceGroup struct {
 	JwtService
-	ApiService
+	// ApiService
 	MenuService
 	UserService
-	CasbinService
+	// CasbinService
 	InitDBService
-	AutoCodeService
-	BaseMenuService
-	AuthorityService
-	DictionaryService
-	SystemConfigService
-	OperationRecordService
-	DictionaryDetailService
-	AuthorityBtnService
-	SysExportTemplateService
-	SysParamsService
-	SysVersionService
-	AutoCodePlugin   autoCodePlugin
-	AutoCodePackage  autoCodePackage
-	AutoCodeHistory  autoCodeHistory
-	AutoCodeTemplate autoCodeTemplate
+	// AutoCodeService
+	// BaseMenuService
+	// AuthorityService
+	// DictionaryService
+	// SystemConfigService
+	// OperationRecordService
+	// DictionaryDetailService
+	// AuthorityBtnService
+	// SysExportTemplateService
+	// SysParamsService
+	// SysVersionService
+	// AutoCodePlugin   autoCodePlugin
+	// AutoCodePackage  autoCodePackage
+	// AutoCodeHistory  autoCodeHistory
+	// AutoCodeTemplate autoCodeTemplate
 }

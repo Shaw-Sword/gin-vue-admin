@@ -1,5 +1,5 @@
 package system
-
+/*  2025-10-27
 import (
 	"github.com/flipped-aurora/gin-vue-admin/server/global"
 	"github.com/flipped-aurora/gin-vue-admin/server/model/common/response"
@@ -67,3 +67,4 @@ func (cas *CasbinApi) GetPolicyPathByAuthorityId(c *gin.Context) {
 	paths := casbinService.GetPolicyPathByAuthorityId(casbin.AuthorityId)
 	response.OkWithDetailed(systemRes.PolicyPathResponse{Paths: paths}, "获取成功", c)
 }
+*/
