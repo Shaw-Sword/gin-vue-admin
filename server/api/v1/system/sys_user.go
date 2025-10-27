@@ -1,19 +1,15 @@
 package system
 
 import (
-	"strconv"
 	"time"
 
 	"github.com/flipped-aurora/gin-vue-admin/server/global"
-	"github.com/flipped-aurora/gin-vue-admin/server/model/common"
-	"github.com/flipped-aurora/gin-vue-admin/server/model/common/request"
 	"github.com/flipped-aurora/gin-vue-admin/server/model/common/response"
 	"github.com/flipped-aurora/gin-vue-admin/server/model/system"
 	systemReq "github.com/flipped-aurora/gin-vue-admin/server/model/system/request"
 	systemRes "github.com/flipped-aurora/gin-vue-admin/server/model/system/response"
 	"github.com/flipped-aurora/gin-vue-admin/server/utils"
 	"github.com/gin-gonic/gin"
-	"github.com/redis/go-redis/v9"
 	"go.uber.org/zap"
 )
 
@@ -91,6 +87,8 @@ func (b *BaseApi) TokenNext(c *gin.Context, user system.SysUser) {
 		return
 	}
 
+	/* 2025-10-27  不需要 redis
+
 	if jwtStr, err := jwtService.GetRedisJWT(user.Username); err == redis.Nil {
 		if err := utils.SetRedisJWT(token, user.Username); err != nil {
 			global.GVA_LOG.Error("设置登录状态失败!", zap.Error(err))
@@ -124,7 +122,11 @@ func (b *BaseApi) TokenNext(c *gin.Context, user system.SysUser) {
 			ExpiresAt: claims.RegisteredClaims.ExpiresAt.Unix() * 1000,
 		}, "登录成功", c)
 	}
+
+	    */
 }
+
+/*    2025-10-27
 
 // Register
 // @Tags     SysUser
@@ -480,3 +482,5 @@ func (b *BaseApi) ResetPassword(c *gin.Context) {
 	}
 	response.OkWithMessage("重置成功", c)
 }
+
+*/

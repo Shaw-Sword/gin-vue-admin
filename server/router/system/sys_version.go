@@ -1,5 +1,5 @@
 package system
-
+/*  2025-10-27
 import (
 	"github.com/flipped-aurora/gin-vue-admin/server/middleware"
 	"github.com/gin-gonic/gin"
@@ -23,3 +23,4 @@ func (s *SysVersionRouter) InitSysVersionRouter(Router *gin.RouterGroup) {
 		sysVersionRouterWithoutRecord.GET("downloadVersionJson", sysVersionApi.DownloadVersionJson) // 下载版本JSON数据
 	}
 }
+*/

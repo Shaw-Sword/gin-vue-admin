@@ -1,5 +1,5 @@
 package system
-
+/*  2025-10-27
 import (
 	"github.com/gin-gonic/gin"
 )
@@ -43,3 +43,4 @@ func (s *AutoCodeRouter) InitAutoCodeRouter(Router *gin.RouterGroup, RouterPubli
 		publicAutoCodeRouter.POST("initAPI", autoCodePluginApi.InitAPI)   // 同步插件API
 	}
 }
+*/

@@ -1,5 +1,5 @@
 package internal
-
+/*  2025-10-27
 import (
 	"context"
 	"fmt"
@@ -27,3 +27,4 @@ func (m *mongo) GetClientOptions() []options.ClientOptions {
 	}
 	return []options.ClientOptions{{ClientOptions: &opt.ClientOptions{Monitor: cmdMonitor}}}
 }
+*/

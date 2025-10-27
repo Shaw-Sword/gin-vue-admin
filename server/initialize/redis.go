@@ -1,5 +1,5 @@
 package initialize
-
+/*  2025-10-27
 import (
 	"context"
 
@@ -57,3 +57,4 @@ func RedisList() {
 
 	global.GVA_REDISList = redisMap
 }
+*/

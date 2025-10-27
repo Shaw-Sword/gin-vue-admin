@@ -1,5 +1,5 @@
 package system
-
+/*  2025-10-27
 import (
 	"github.com/gin-gonic/gin"
 )
@@ -16,3 +16,4 @@ func (s *OperationRecordRouter) InitSysOperationRecordRouter(Router *gin.RouterG
 
 	}
 }
+*/

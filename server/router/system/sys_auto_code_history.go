@@ -1,5 +1,5 @@
 package system
-
+/*  2025-10-27
 import (
 	"github.com/gin-gonic/gin"
 )
@@ -15,3 +15,4 @@ func (s *AutoCodeRouter) InitAutoCodeHistoryRouter(Router *gin.RouterGroup) {
 		autoCodeHistoryRouter.POST("getSysHistory", autocodeHistoryApi.GetList) // 获取回滚记录分页
 	}
 }
+*/

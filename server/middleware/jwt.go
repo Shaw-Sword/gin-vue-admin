@@ -60,10 +60,13 @@ func JWTAuth() gin.HandlerFunc {
 			c.Header("new-token", newToken)
 			c.Header("new-expires-at", strconv.FormatInt(newClaims.ExpiresAt.Unix(), 10))
 			utils.SetToken(c, newToken, int(dr.Seconds()))
+
+			/*  2025-10-27
 			if global.GVA_CONFIG.System.UseMultipoint {
 				// 记录新的活跃jwt
 				_ = utils.SetRedisJWT(newToken, newClaims.Username)
 			}
+				2025-10-27    */
 		}
 		c.Next()
 

@@ -1,5 +1,5 @@
 package initialize
-
+/*  2025-10-27
 import (
 	"context"
 	adapter "github.com/casbin/gorm-adapter/v3"
@@ -111,3 +111,4 @@ func (e *ensureTables) TableCreated(ctx context.Context) bool {
 	}
 	return yes
 }
+*/

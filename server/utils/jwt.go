@@ -1,7 +1,6 @@
 package utils
 
 import (
-	"context"
 	"errors"
 	"time"
 
@@ -93,13 +92,13 @@ func (j *JWT) ParseToken(tokenString string) (*request.CustomClaims, error) {
 //@param: jwt string, userName string
 //@return: err error
 
-func SetRedisJWT(jwt string, userName string) (err error) {
-	// 此处过期时间等于jwt过期时间
-	dr, err := ParseDuration(global.GVA_CONFIG.JWT.ExpiresTime)
-	if err != nil {
-		return err
-	}
-	timer := dr
-	err = global.GVA_REDIS.Set(context.Background(), userName, jwt, timer).Err()
-	return err
-}
+// func SetRedisJWT(jwt string, userName string) (err error) {
+// 	// 此处过期时间等于jwt过期时间
+// 	dr, err := ParseDuration(global.GVA_CONFIG.JWT.ExpiresTime)
+// 	if err != nil {
+// 		return err
+// 	}
+// 	timer := dr
+// 	err = global.GVA_REDIS.Set(context.Background(), userName, jwt, timer).Err()
+// 	return err
+// }

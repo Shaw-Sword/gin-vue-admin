@@ -1,5 +1,5 @@
 package system
-
+/*  2025-10-27
 import (
 	"github.com/flipped-aurora/gin-vue-admin/server/middleware"
 	"github.com/gin-gonic/gin"
@@ -20,3 +20,4 @@ func (s *DictionaryRouter) InitSysDictionaryRouter(Router *gin.RouterGroup) {
 		sysDictionaryRouterWithoutRecord.GET("getSysDictionaryList", dictionaryApi.GetSysDictionaryList) // 获取SysDictionary列表
 	}
 }
+*/

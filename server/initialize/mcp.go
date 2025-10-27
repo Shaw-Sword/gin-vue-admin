@@ -1,5 +1,5 @@
 package initialize
-
+/*  2025-10-27
 import (
 	"github.com/flipped-aurora/gin-vue-admin/server/global"
 	mcpTool "github.com/flipped-aurora/gin-vue-admin/server/mcp"
@@ -23,3 +23,4 @@ func McpRun() *server.SSEServer {
 		server.WithMessageEndpoint(config.MessagePath),
 		server.WithBaseURL(config.UrlPrefix))
 }
+*/

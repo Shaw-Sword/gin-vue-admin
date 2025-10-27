@@ -1,5 +1,5 @@
 package system
-
+/*  2025-10-27
 import (
 	"github.com/flipped-aurora/gin-vue-admin/server/middleware"
 	"github.com/gin-gonic/gin"
@@ -17,3 +17,4 @@ func (s *CasbinRouter) InitCasbinRouter(Router *gin.RouterGroup) {
 		casbinRouterWithoutRecord.POST("getPolicyPathByAuthorityId", casbinApi.GetPolicyPathByAuthorityId)
 	}
 }
+*/

@@ -30,7 +30,7 @@ func Reload() error {
 
 	// 重新初始化其他配置
 	OtherInit()
-	DBList()
+	// DBList()    // 2025-09-04   目前用不到 注释
 
 	if global.GVA_DB != nil {
 		// 确保数据库表结构是最新的
@@ -38,7 +38,7 @@ func Reload() error {
 	}
 
 	// 重新初始化定时任务
-	Timer()
+	// Timer()   // 2025-09-04   目前用不到 注释
 
 	global.GVA_LOG.Info("系统配置重新加载完成")
 	return nil
