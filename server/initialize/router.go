@@ -51,7 +51,7 @@ func Routers() *gin.Engine {
 			sseServer.MessageHandler().ServeHTTP(c.Writer, c.Request)
 		})
 	}
-		*/
+	*/
 
 	systemRouter := router.RouterGroupApp.System
 
@@ -76,7 +76,7 @@ func Routers() *gin.Engine {
 	docs.SwaggerInfo.BasePath = global.GVA_CONFIG.System.RouterPrefix
 	Router.GET(global.GVA_CONFIG.System.RouterPrefix+"/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 	global.GVA_LOG.Info("register swagger handler")
-*/
+	*/
 	// 方便统一添加路由组前缀 多服务器上线使用
 
 	PublicGroup := Router.Group(global.GVA_CONFIG.System.RouterPrefix)
@@ -99,7 +99,7 @@ func Routers() *gin.Engine {
 		// systemRouter.InitApiRouter(PrivateGroup, PublicGroup)               // 注册功能api路由
 		// systemRouter.InitJwtRouter(PrivateGroup)                            // jwt相关路由
 		// systemRouter.InitUserRouter(PrivateGroup)                           // 注册用户路由
-		systemRouter.InitMenuRouter(PrivateGroup)                           // 注册menu路由
+		systemRouter.InitMenuRouter(PrivateGroup) // 注册menu路由
 		// systemRouter.InitSystemRouter(PrivateGroup)                         // system相关路由
 		// systemRouter.InitSysVersionRouter(PrivateGroup)                     // 发版相关路由
 		// systemRouter.InitCasbinRouter(PrivateGroup)                         // 权限相关路由
@@ -121,10 +121,10 @@ func Routers() *gin.Engine {
 	/*  2025-10-27
 	//插件路由安装
 	InstallPlugin(PrivateGroup, PublicGroup, Router)
+	*/
 
 	// 注册业务路由
 	initBizRouter(PrivateGroup, PublicGroup)
-	*/
 
 	global.GVA_ROUTERS = Router.Routes()
 

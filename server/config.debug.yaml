@@ -1,4 +1,17 @@
-# github.com/flipped-aurora/gin-vue-admin/server Global Configuration
+#  Global Configuration
+
+mssql:
+  path: 192.168.1.100
+  port: 11433
+  config: ""
+  db-name: dbtest1
+  username: sa
+  password: 1162084Xx@
+  max-idle-conns: 10
+  max-open-conns: 100
+  log-mode: ""
+  log-zap: true
+
 
 # jwt configuration
 jwt:
@@ -45,17 +58,7 @@ captcha:
     img-height: 80
     open-captcha: 0 # 0代表一直开启，大于0代表限制次数
     open-captcha-timeout: 3600 # open-captcha大于0时才生效
-mssql:
-  path: 192.168.1.100
-  port: 11433
-  config: ""
-  db-name: dbtest1
-  username: sa
-  password: 1162084Xx@
-  max-idle-conns: 10
-  max-open-conns: 100
-  log-mode: ""
-  log-zap: true
+
 
 sqlite:
     path: "."
