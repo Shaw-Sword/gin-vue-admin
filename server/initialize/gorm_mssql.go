@@ -40,6 +40,19 @@ func GormMssql() *gorm.DB {
 		sqlDB, _ := db.DB()
 		sqlDB.SetMaxIdleConns(m.MaxIdleConns)
 		sqlDB.SetMaxOpenConns(m.MaxOpenConns)
+
+		// 数据库反向生成需要  正式环境移除
+		// 为 SQL Server 2008 添加特殊配置
+		//db.Set("gorm:table_options", "ENGINE=InnoDB")
+		//
+		//// 关键：禁用 OFFSET FETCH
+		//sqlDB, err := db.DB()
+		//if err == nil {
+		//	// 设置连接参数，使用兼容 SQL Server 2008 的语法
+		//	db.Exec("SET ANSI_NULLS ON")
+		//	db.Exec("SET QUOTED_IDENTIFIER ON")
+		//}
+
 		return db
 	}
 }
