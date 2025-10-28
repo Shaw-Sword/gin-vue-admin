@@ -1,12 +1,12 @@
 #  Global Configuration
 
 mssql:
-  path: 192.168.2.133
-  port: 1433
+  path: 192.168.1.100
+  port: 11433
   config: ""
   db-name: dbtest1
   username: sa
-  password: 1162084Xx
+  password: 1162084Xx@
   max-idle-conns: 10
   max-open-conns: 100
   log-mode: ""

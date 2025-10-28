@@ -1,4 +1,12 @@
 ### GET request to example server
-GET http://127.0.0.1:8888/scan_compare/getScanPublic
+GET http://127.0.0.1:8888/scan_compare?AAAAAAAAA
+
+###
+
+
+### Post
+POST http://127.0.0.1:8888/scan_compare
+
+BBBBBBBBBBB
 
 ###

@@ -186,3 +186,41 @@ func (scan_compareApi *ScanApi) GetScanPublic(c *gin.Context) {
 		"info": "不需要鉴权的扫码对比接口信息",
 	}, "获取成功", c)
 }
+
+// GetScanInfoPublic 不需要鉴权的扫码对比接口GET
+// @Tags Scan
+// @Summary 不需要鉴权的扫码对比接口
+// @Accept application/json
+// @Produce application/json
+// @Success 200 {object} response.Response{data=object,msg=string} "获取成功"
+// @Router /scan_compare [get]
+func (scan_compareApi *ScanApi) GetScanInfoPublic(c *gin.Context) {
+	// 创建业务用Context
+	ctx := c.Request.Context()
+
+	// 此接口不需要鉴权
+	// 示例为返回了一个固定的消息接口，一般本接口用于C端服务，需要自己实现业务逻辑
+	scan_compareService.HandleScanInfoPublic(ctx)
+	response.OkWithDetailed(gin.H{
+		"info": "不需要鉴权的扫码对比接口信息GET",
+	}, "获取成功", c)
+}
+
+// PostScanInfoPublic 不需要鉴权的扫码对比接口GET
+// @Tags Scan
+// @Summary 不需要鉴权的扫码对比接口
+// @Accept application/json
+// @Produce application/json
+// @Success 200 {object} response.Response{data=object,msg=string} "获取成功"
+// @Router /scan_compare [post]
+func (scan_compareApi *ScanApi) PostScanInfoPublic(c *gin.Context) {
+	// 创建业务用Context
+	ctx := c.Request.Context()
+
+	// 此接口不需要鉴权
+	// 示例为返回了一个固定的消息接口，一般本接口用于C端服务，需要自己实现业务逻辑
+	scan_compareService.HandleScanInfoPublic(ctx)
+	response.OkWithDetailed(gin.H{
+		"info": "不需要鉴权的扫码对比接口信息POST",
+	}, "获取成功", c)
+}

@@ -86,3 +86,9 @@ func (scan_compareService *ScanService) GetScanPublic(ctx context.Context) {
 	// 此方法为获取数据源定义的数据
 	// 请自行实现
 }
+
+// HandleScanInfoPublic 扫码后处理业务
+func (scan_compareService *ScanService) HandleScanInfoPublic(ctx context.Context) {
+	// 此方法为获取数据源定义的数据
+	// 请自行实现
+}
