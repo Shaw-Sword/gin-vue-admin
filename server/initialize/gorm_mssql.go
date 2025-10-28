@@ -9,9 +9,6 @@ package initialize
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
 
-
- 
-/*  2025-10-27
 import (
 	"github.com/flipped-aurora/gin-vue-admin/server/config"
 	"github.com/flipped-aurora/gin-vue-admin/server/global"
@@ -31,11 +28,14 @@ func GormMssql() *gorm.DB {
 		DSN:               m.Dsn(), // DSN data source name
 		DefaultStringSize: 191,     // string 类型字段的默认长度
 	}
+	global.GVA_LOG.Info("sqlserver正在尝试连接......")
 	// 数据库配置
 	general := m.GeneralDB
 	if db, err := gorm.Open(sqlserver.New(mssqlConfig), internal.Gorm.Config(general)); err != nil {
+		global.GVA_LOG.Sugar().Debugf("sqlserver连接失败:%v", err)
 		return nil
 	} else {
+		global.GVA_LOG.Info("sqlserver连接成功")
 		db.InstanceSet("gorm:table_options", "ENGINE="+m.Engine)
 		sqlDB, _ := db.DB()
 		sqlDB.SetMaxIdleConns(m.MaxIdleConns)
@@ -65,4 +65,3 @@ func GormMssqlByConfig(m config.Mssql) *gorm.DB {
 		return db
 	}
 }
-*/

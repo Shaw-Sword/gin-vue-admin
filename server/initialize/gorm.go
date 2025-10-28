@@ -34,6 +34,11 @@ func Gorm() *gorm.DB {
 	}
 }
 
+// MssqlGorm  2025-10-28 外部连接获取数据
+func MssqlGorm() *gorm.DB {
+	return GormMssql()
+}
+
 func RegisterTables() {
 	if global.GVA_CONFIG.System.DisableAutoMigrate {
 		global.GVA_LOG.Info("auto-migrate is disabled, skipping table registration")
