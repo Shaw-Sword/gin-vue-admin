@@ -24,7 +24,7 @@ func (s *ScanRouter) InitScanRouter(Router *gin.RouterGroup, PublicRouter *gin.R
 	}
 	{
 		scan_compareRouterWithoutAuth.GET("getScanPublic", scan_compareApi.GetScanPublic) // 扫码对比开放接口
-		scan_compareRouterWithoutAuth.GET("", scan_compareApi.GetScanInfoPublic)          // 扫码对比开放接口
-		scan_compareRouterWithoutAuth.POST("", scan_compareApi.PostScanInfoPublic)        // 扫码对比开放接口
+		scan_compareRouterWithoutAuth.GET("", scan_compareApi.GetScanInfoPublic)          // GET扫码对比接口
+		scan_compareRouterWithoutAuth.POST("", scan_compareApi.PostScanInfoPublic)        // POST扫码对比接口
 	}
 }

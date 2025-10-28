@@ -1,12 +1,17 @@
-### GET request to example server
-GET http://127.0.0.1:8888/scan_compare?AAAAAAAAA
+### GET request to example server     称重任务
+GET http://127.0.0.1:8888/scan_compare?QMBG2503-00900
 
 ###
 
 
+### GET request to example server     球磨报工
+GET http://127.0.0.1:8888/scan_compare?QMBG2112-00954
+
+###
+
 ### Post
 POST http://127.0.0.1:8888/scan_compare
 
-BBBBBBBBBBB
+QMBG2503-00900
 
 ###

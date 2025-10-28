@@ -195,12 +195,18 @@ func (scan_compareApi *ScanApi) GetScanPublic(c *gin.Context) {
 // @Success 200 {object} response.Response{data=object,msg=string} "获取成功"
 // @Router /scan_compare [get]
 func (scan_compareApi *ScanApi) GetScanInfoPublic(c *gin.Context) {
+	rawQuery := c.Request.URL.RawQuery // 得到 "AAAAAAAAA"
+	if rawQuery == "" {
+		response.FailWithMessage("无效请求", c)
+		return
+	}
+	global.GVA_LOG.Info(rawQuery)
 	// 创建业务用Context
 	ctx := c.Request.Context()
 
 	// 此接口不需要鉴权
 	// 示例为返回了一个固定的消息接口，一般本接口用于C端服务，需要自己实现业务逻辑
-	scan_compareService.HandleScanInfoPublic(ctx)
+	scan_compareService.HandleScanInfoPublic(ctx, rawQuery)
 	response.OkWithDetailed(gin.H{
 		"info": "不需要鉴权的扫码对比接口信息GET",
 	}, "获取成功", c)
@@ -214,12 +220,20 @@ func (scan_compareApi *ScanApi) GetScanInfoPublic(c *gin.Context) {
 // @Success 200 {object} response.Response{data=object,msg=string} "获取成功"
 // @Router /scan_compare [post]
 func (scan_compareApi *ScanApi) PostScanInfoPublic(c *gin.Context) {
+	// 读取原始请求体（纯文本）
+	rawData, err := c.GetRawData()
+	if err != nil {
+		response.FailWithMessage("读取请求体失败", c)
+		return
+	}
+	msg := string(rawData)
+	global.GVA_LOG.Info(msg)
 	// 创建业务用Context
 	ctx := c.Request.Context()
 
 	// 此接口不需要鉴权
 	// 示例为返回了一个固定的消息接口，一般本接口用于C端服务，需要自己实现业务逻辑
-	scan_compareService.HandleScanInfoPublic(ctx)
+	scan_compareService.HandleScanInfoPublic(ctx, msg)
 	response.OkWithDetailed(gin.H{
 		"info": "不需要鉴权的扫码对比接口信息POST",
 	}, "获取成功", c)

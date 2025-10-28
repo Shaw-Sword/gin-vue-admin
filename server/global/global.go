@@ -34,6 +34,7 @@ var (
 	GVA_ACTIVE_DBNAME       *string
 	// GVA_MCP_SERVER          *server.MCPServer
 	BlackCache local_cache.Cache
+	ScanCache  local_cache.Cache // 扫码对比缓存
 	lock       sync.RWMutex
 )
 

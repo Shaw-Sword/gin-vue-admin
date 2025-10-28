@@ -88,7 +88,36 @@ func (scan_compareService *ScanService) GetScanPublic(ctx context.Context) {
 }
 
 // HandleScanInfoPublic 扫码后处理业务
-func (scan_compareService *ScanService) HandleScanInfoPublic(ctx context.Context) {
+func (scan_compareService *ScanService) HandleScanInfoPublic(ctx context.Context, code string) {
 	// 此方法为获取数据源定义的数据
-	// 请自行实现
+	// 判断二维码类型   如果是球磨机二维码 ,查询缓存后,返回           否则
+
+	// 查询 称重任务
+	var task scan.WeightTaskModel
+	if global.E_MSSQL == nil {
+		global.GVA_LOG.Error("连接数据库失败")
+		//return nil, errors.New("连接数据库失败")
+	}
+	if err := global.E_MSSQL.Raw(`SELECT TOP 1 * FROM [dbo].[备料配方称重任务单_主表] WHERE task_id = ?`, code).Scan(&task).Error; err != nil {
+		//return nil, err
+		global.GVA_LOG.Error("查询称重任务失败")
+	}
+	//return &task, nil
+	global.GVA_LOG.Sugar().Infof("查询成功,数据: %v", task)
+
+	// 查询 球磨报工记录
+
+	var record scan.BallMillRecordModel
+
+	if err := global.E_MSSQL.Raw(`SELECT TOP 1 * FROM [dbo].[球磨报工记录单_主表] WHERE 本单编码 = ?`, code).Scan(&record).Error; err != nil {
+		//return nil, err
+		global.GVA_LOG.Error("查询球磨报工记录失败")
+	}
+	//return &task, nil
+	global.GVA_LOG.Sugar().Infof("查询球磨报工记录成功,数据: %v", record)
+
+	// 对比二者的基地+球磨机号   一致的话再和 球磨机二维码缓存对比
+
+	// io模块 一致绿灯,不一致红灯
+
 }
