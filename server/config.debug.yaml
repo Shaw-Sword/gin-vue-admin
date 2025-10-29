@@ -1,12 +1,18 @@
 #  Global Configuration
+# 扫码对比相关配置
+scan-compare:
+  expires-time: 1h              # 扫码后信息缓存时长
+  eio-ip: 192.168.1.100
+  eio-port: 12345
 
+ # sql server
 mssql:
-  path: 192.168.2.133
-  port: 1433
+  path: 192.168.1.100
+  port: 11433
   config: ""
   db-name: dbtest1
   username: sa
-  password: 1162084Xx
+  password: 1162084Xx@
   max-idle-conns: 10
   max-open-conns: 100
   log-mode: ""

@@ -200,15 +200,18 @@ func (scan_compareApi *ScanApi) GetScanInfoPublic(c *gin.Context) {
 		response.FailWithMessage("无效请求", c)
 		return
 	}
-	global.GVA_LOG.Info(rawQuery)
+	global.GVA_LOG.Sugar().Infof("GET模式收到数据：%v", rawQuery)
 	// 创建业务用Context
 	ctx := c.Request.Context()
 
 	// 此接口不需要鉴权
 	// 示例为返回了一个固定的消息接口，一般本接口用于C端服务，需要自己实现业务逻辑
-	scan_compareService.HandleScanInfoPublic(ctx, rawQuery)
+	if err := scan_compareService.HandleScanInfoPublic(ctx, rawQuery); err != nil {
+		response.FailWithMessage(err.Error(), c)
+		return
+	}
 	response.OkWithDetailed(gin.H{
-		"info": "不需要鉴权的扫码对比接口信息GET",
+		"info": "GET模式发送数据成功",
 	}, "获取成功", c)
 }
 
@@ -233,8 +236,11 @@ func (scan_compareApi *ScanApi) PostScanInfoPublic(c *gin.Context) {
 
 	// 此接口不需要鉴权
 	// 示例为返回了一个固定的消息接口，一般本接口用于C端服务，需要自己实现业务逻辑
-	scan_compareService.HandleScanInfoPublic(ctx, msg)
+	if err = scan_compareService.HandleScanInfoPublic(ctx, msg); err != nil {
+		response.FailWithMessage(err.Error(), c)
+		return
+	}
 	response.OkWithDetailed(gin.H{
-		"info": "不需要鉴权的扫码对比接口信息POST",
+		"info": "POST模式发送数据成功",
 	}, "获取成功", c)
 }

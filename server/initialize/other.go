@@ -25,8 +25,14 @@ func OtherInit() {
 		local_cache.SetDefaultExpire(dr),
 	)
 
+	cacheSaveDuration, err := utils.ParseDuration(global.GVA_CONFIG.ScanCompare.ExpiresTime)
+	if err != nil {
+		panic(err)
+	}
+
+	//      2025-10-29  扫码信息缓存
 	global.ScanCache = local_cache.NewCache(
-		local_cache.SetDefaultExpire(dr),
+		local_cache.SetDefaultExpire(cacheSaveDuration),
 	)
 
 	file, err := os.Open("go.mod")
