@@ -1,6 +1,8 @@
 package main
 
 import (
+	"embed"
+
 	"github.com/flipped-aurora/gin-vue-admin/server/core"
 	"github.com/flipped-aurora/gin-vue-admin/server/global"
 	"github.com/flipped-aurora/gin-vue-admin/server/initialize"
@@ -12,6 +14,9 @@ import (
 //go:generate go env -w GOPROXY=https://goproxy.cn,direct
 //go:generate go mod tidy
 //go:generate go mod download
+
+//go:embed dist
+var staticFiles embed.FS
 
 // 这部分 @Tag 设置用于排序, 需要排序的接口请按照下面的格式添加
 // swag init 对 @Tag 只会从入口文件解析, 默认 main.go
@@ -30,6 +35,11 @@ import (
 func main() {
 	// 初始化系统
 	initializeSystem()
+	// ====== 2. 嵌入 dist（现在就在当前目录下） ======
+	//distFS, err := fs.Sub(staticFiles, "dist")
+	//if err != nil {
+	//	global.GVA_LOG.Fatal("无法加载前端资源:", err)
+	//}
 	// 运行服务器
 	core.RunServer()
 }
