@@ -32,7 +32,8 @@ func GormMssql() *gorm.DB {
 	// 数据库配置
 	general := m.GeneralDB
 	if db, err := gorm.Open(sqlserver.New(mssqlConfig), internal.Gorm.Config(general)); err != nil {
-		global.GVA_LOG.Sugar().Fatalf("sqlserver连接失败:%v", err)
+		//global.GVA_LOG.Sugar().Fatalf("sqlserver连接失败:%v", err)
+		global.GVA_LOG.Sugar().Errorf("sqlserver连接失败:%v", err)
 		return nil
 
 	} else {

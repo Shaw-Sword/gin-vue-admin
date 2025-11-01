@@ -1,8 +1,6 @@
 package main
 
 import (
-	"embed"
-
 	"github.com/flipped-aurora/gin-vue-admin/server/core"
 	"github.com/flipped-aurora/gin-vue-admin/server/global"
 	"github.com/flipped-aurora/gin-vue-admin/server/initialize"
@@ -15,8 +13,8 @@ import (
 //go:generate go mod tidy
 //go:generate go mod download
 
-//go:embed dist
-var staticFiles embed.FS
+//        //go:embed dist
+//    var staticFiles embed.FS
 
 // 这部分 @Tag 设置用于排序, 需要排序的接口请按照下面的格式添加
 // swag init 对 @Tag 只会从入口文件解析, 默认 main.go
