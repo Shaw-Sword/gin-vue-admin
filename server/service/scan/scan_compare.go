@@ -119,23 +119,25 @@ func GetCacheSaveDuration() time.Duration {
 type EIOCmdType int
 
 const (
-	CmdOpen  EIOCmdType = iota + 1 // 1
-	CmdClose                       // 2
-	CmdRed                         // 3
-	CmdGreen                       // 4
+	CmdOpenGreen  EIOCmdType = iota + 1 // 1
+	CmdCloseGreen                       // 2
+	CmdOpenRed                          // 3
+	CmdCloseRed                         // 4
+
 )
 
 // ToBytes 将指令转换为要发送的字节（这里用简单文本协议，也可用二进制/JSON）
 func (c EIOCmdType) ToBytes() []byte {
 	switch c {
-	case CmdOpen:
-		return []byte("OPEN1\n")
-	case CmdClose:
-		return []byte("CLOSE1\n")
-	case CmdRed:
-		return []byte("CLOSE1\n")
-	case CmdGreen:
-		return []byte("OPEN1\n")
+	case CmdOpenGreen:
+		return []byte("OPEN5\n")
+	case CmdCloseGreen:
+		return []byte("CLOSE5\n")
+	case CmdOpenRed:
+		return []byte("OPEN6\n")
+	case CmdCloseRed:
+		return []byte("CLOSE6\n")
+
 	default:
 		return []byte("CMD_UNKNOWN\n")
 	}
@@ -199,7 +201,11 @@ func (s *ScanService) HandleScanInfoPublic(ctx context.Context, code string) err
 
 				// 后续操作？？？
 				// io模块 一致绿灯
-				SendTcpCmd(CmdGreen)
+				go func() {
+					SendTcpCmd(CmdOpenGreen)
+					time.Sleep(time.Second * 5)
+					SendTcpCmd(CmdCloseGreen)
+				}()
 
 				return nil
 			} else {
@@ -208,7 +214,7 @@ func (s *ScanService) HandleScanInfoPublic(ctx context.Context, code string) err
 				global.ScanCache.Delete(DbCacheKey)
 				global.ScanCache.Delete(BallCacheKey)
 				// io模块 不一致红灯
-				SendTcpCmd(CmdRed)
+				SendTcpCmd(CmdOpenRed)
 				return fmt.Errorf("❌匹配失败,称重任务信息：%s,球磨报告记录信息：%s,球磨机二维码信息：%s", dbInfo.TaskInfo, dbInfo.RecordInfo, code)
 			}
 		} else { // 没有存 数据库查询到的数据  说明是第一次扫到球磨机二维码，缓存
@@ -269,7 +275,12 @@ func (s *ScanService) HandleScanInfoPublic(ctx context.Context, code string) err
 			global.ScanCache.Delete(DbCacheKey)
 			global.ScanCache.Delete(BallCacheKey)
 			// io模块 一致绿灯
-			SendTcpCmd(CmdGreen)
+			go func() {
+				SendTcpCmd(CmdOpenGreen)
+				time.Sleep(time.Second * 5)
+				SendTcpCmd(CmdCloseGreen)
+			}()
+
 			return nil
 		} else {
 			global.GVA_LOG.Sugar().Errorf("❌匹配失败,称重任务信息：%s,球磨报告记录信息：%s,球磨机二维码信息：%s", dbInfo.TaskInfo, dbInfo.RecordInfo, ballCachedValue)
@@ -278,7 +289,7 @@ func (s *ScanService) HandleScanInfoPublic(ctx context.Context, code string) err
 			global.ScanCache.Delete(BallCacheKey)
 
 			// io模块 不一致红灯
-			SendTcpCmd(CmdRed)
+			SendTcpCmd(CmdOpenRed)
 			return fmt.Errorf("❌匹配失败,称重任务信息：%s,球磨报告记录信息：%s,球磨机二维码信息：%s", dbInfo.TaskInfo, dbInfo.RecordInfo, ballCachedValue)
 		}
 

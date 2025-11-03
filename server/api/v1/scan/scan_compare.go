@@ -225,6 +225,7 @@ func (scan_compareApi *ScanApi) GetScanInfoPublic(c *gin.Context) {
 func (scan_compareApi *ScanApi) PostScanInfoPublic(c *gin.Context) {
 	// 读取原始请求体（纯文本）
 	rawData, err := c.GetRawData()
+	c.Header("Connection", "close")
 	if err != nil {
 		response.FailWithMessage("读取请求体失败", c)
 		return
@@ -233,42 +234,15 @@ func (scan_compareApi *ScanApi) PostScanInfoPublic(c *gin.Context) {
 	msg := string(rawData)
 	global.GVA_LOG.Sugar().Infof("POST读取到了请求体文本数据: %v", msg)
 	// 创建业务用Context
-	//ctx := c.Request.Context()
+	ctx := c.Request.Context()
 
 	//// 此接口不需要鉴权
 	//// 示例为返回了一个固定的消息接口，一般本接口用于C端服务，需要自己实现业务逻辑
-	//if err = scan_compareService.HandleScanInfoPublic(ctx, msg); err != nil {
-	//	response.FailWithMessage(err.Error(), c)
-	//	return
-	//}
-	//response.OkWithDetailed(gin.H{
-	//	"info": "POST模式发送数据成功",
-	//}, "获取成功", c)
-	// 优先使用客户端的 Content-Type，否则默认为文本
-	//contentType := c.GetHeader("Content-Type")
-	//if contentType == "" {
-	//	//contentType = "text/plain; charset=utf-8"
-	//	contentType = "text/plain"
-	//}
-	//contentType := "text/plain; charset=utf-8"
-	//c.Data(200, contentType, rawData)
-	data := map[string]interface{}{
-		"code": 200,
-		"control": []interface{}{
-			map[string]interface{}{
-				"name":  "ledGreen",
-				"count": 3,
-				"on":    500,
-				"off":   500,
-			},
-			map[string]interface{}{
-				"name":  "sysBuzzer",
-				"count": 2,
-				"on":    100,
-				"off":   100,
-			},
-		},
+	if err = scan_compareService.HandleScanInfoPublic(ctx, msg); err != nil {
+		response.FailWithMessage(err.Error(), c)
+		return
 	}
-	c.Header("Content-Type", "text/plain;charset=UTF-8") // 如果需要这个 Content-Type
-	c.JSON(200, data)                                    // Gin 会自动处理序列化和可能的分块
+
+	c.Status(200) // 或其他状态码
+	// 不调用 c.JSON 或 c.String，避免写入 body
 }
