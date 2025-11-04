@@ -13,6 +13,7 @@ import (
 	"github.com/flipped-aurora/gin-vue-admin/server/model/scan"
 	scanReq "github.com/flipped-aurora/gin-vue-admin/server/model/scan/request"
 	"github.com/flipped-aurora/gin-vue-admin/server/utils"
+	"gorm.io/gorm"
 )
 
 const (
@@ -21,8 +22,13 @@ const (
 )
 
 type CacheDbInfo struct {
-	TaskInfo   string
-	RecordInfo string
+	TaskInfo      string
+	RecordInfo    string
+	Code          string
+	TotalWeight   float64 // 任务重量
+	CurrentWeight float64 // 当前称重重量
+	TotalCount    int     // 总袋数
+	CurrentCount  int     // 当前袋数
 }
 
 type ScanService struct {
@@ -177,6 +183,53 @@ func SendTcpCmd(cmd EIOCmdType) {
 	return
 }
 
+// 更新成功匹配的数据库信息
+func updateOkTaskInfoByCode(info CacheDbInfo) {
+	curTime := time.Now()
+	if info.CurrentCount == info.TotalCount {
+		db := global.E_MSSQL.Model(&scan.WeightTaskModel{TaskID: info.Code}).
+			Select("AccumulateWeight", "ScanCodeCorrectNumber", "TaskStatus", "FeedFinishTime").
+			Updates(map[string]interface{}{
+				"AccumulateWeight":      gorm.Expr("ISNULL(accumulate_weight, 0) + ?", info.CurrentWeight),
+				"ScanCodeCorrectNumber": gorm.Expr("ISNULL(scan_code_correct_number, 0) + 1"),
+				"TaskStatus":            4,
+				"FeedFinishTime":        &curTime,
+			})
+		if db.Error != nil {
+			global.GVA_LOG.Sugar().Errorf("记录称重完成，更新数据库错误,%v", db.Error)
+		}
+		global.GVA_LOG.Info("记录称重信息完成，更新数据成功")
+
+	} else {
+		db := global.E_MSSQL.Model(&scan.WeightTaskModel{TaskID: info.Code}).
+			Select("AccumulateWeight", "ScanCodeCorrectNumber").
+			Updates(map[string]interface{}{
+				"AccumulateWeight":      gorm.Expr("ISNULL(accumulate_weight, 0) + ?", info.CurrentWeight),
+				"ScanCodeCorrectNumber": gorm.Expr("ISNULL(scan_code_correct_number, 0) + 1"),
+			})
+		if db.Error != nil {
+			global.GVA_LOG.Sugar().Errorf("累积记录称重成功，更新数据库错误,%v", db.Error)
+		}
+		global.GVA_LOG.Info("累积记录称重成功，更新数据成功")
+
+	}
+
+}
+
+// 更新错误匹配的数据库信息
+func updateErrorTaskInfoByCode(info CacheDbInfo) {
+	db := global.E_MSSQL.Model(&scan.WeightTaskModel{TaskID: info.Code}).
+		Select("ScanCodeErrorNumber").
+		Updates(map[string]interface{}{
+			"ScanCodeErrorNumber": gorm.Expr("ISNULL(scan_code_error_number, 0) + 1"),
+		})
+	if db.Error != nil {
+		global.GVA_LOG.Sugar().Errorf("累积记录称重扫码匹配失败信息，更新数据库错误,%v", db.Error)
+	}
+	global.GVA_LOG.Info("累积记录称重扫码匹配失败信息，记录成功")
+
+}
+
 // HandleScanInfoPublic 扫码后处理业务
 func (s *ScanService) HandleScanInfoPublic(ctx context.Context, code string) error {
 	s.mu.Lock()         // 上锁
@@ -195,13 +248,15 @@ func (s *ScanService) HandleScanInfoPublic(ctx context.Context, code string) err
 			}
 			if dbInfo.TaskInfo == code && dbInfo.RecordInfo == code { // 匹配成功
 				global.GVA_LOG.Sugar().Infof("✔ 匹配成功,球磨机二维码信息：%s ,数据库基地等信息：%v", code, dbInfo)
+				// 后续操作？？？
+				updateOkTaskInfoByCode(dbInfo)
 
 				global.ScanCache.Delete(DbCacheKey)
 				global.ScanCache.Delete(BallCacheKey)
 
-				// 后续操作？？？
 				// io模块 一致绿灯
 				go func() {
+					SendTcpCmd(CmdCloseRed)
 					SendTcpCmd(CmdOpenGreen)
 					time.Sleep(time.Second * 5)
 					SendTcpCmd(CmdCloseGreen)
@@ -211,9 +266,11 @@ func (s *ScanService) HandleScanInfoPublic(ctx context.Context, code string) err
 			} else {
 				global.GVA_LOG.Sugar().Errorf("❌匹配失败,称重任务信息：%s,球磨报告记录信息：%s,球磨机二维码信息：%s", dbInfo.TaskInfo, dbInfo.RecordInfo, code)
 
+				updateErrorTaskInfoByCode(dbInfo)
 				global.ScanCache.Delete(DbCacheKey)
 				global.ScanCache.Delete(BallCacheKey)
 				// io模块 不一致红灯
+				SendTcpCmd(CmdCloseGreen)
 				SendTcpCmd(CmdOpenRed)
 				return fmt.Errorf("❌匹配失败,称重任务信息：%s,球磨报告记录信息：%s,球磨机二维码信息：%s", dbInfo.TaskInfo, dbInfo.RecordInfo, code)
 			}
@@ -226,56 +283,71 @@ func (s *ScanService) HandleScanInfoPublic(ctx context.Context, code string) err
 
 	// 长度大于40，说明是需要查询数据的二维码信息，需要截取 💚 查询 称重任务
 	// 案例  2025/10/22 14:03_QMBG2510-00808_2025_Y3932_E1+LF1+LC1_19.9/19.88_1/1
-	var dbCode = ""
+	// 记录关键信息
+	dbInfo := CacheDbInfo{}
+
 	parts := strings.Split(code, "_") // 按下划线分割
-	if len(parts) >= 2 {
-		dbCode = parts[1] // 第一个和第二个下划线之间的内容
-	} else {
+	if len(parts) < 7 {
 		global.GVA_LOG.Sugar().Errorf("格式错误,获取的二维码信息：%s", code)
 		return fmt.Errorf("格式错误,获取的二维码信息：%s", code)
+
 	}
+	dbInfo.Code = parts[1]        // 第一个和第二个下划线之间的内容
+	ratio1 := parts[len(parts)-2] // "19.9/19.88"
+	ratio2 := parts[len(parts)-1] // "1/1"
+	// 2. 分别按 '/' 拆分
+	v1 := strings.Split(ratio1, "/")
+	v2 := strings.Split(ratio2, "/")
+	if len(v1) != 2 || len(v2) != 2 {
+		global.GVA_LOG.Sugar().Errorf("重量和袋数格式错误,获取的二维码信息：%s", code)
+		return fmt.Errorf("重量和袋数格式错误,获取的二维码信息：%s", code)
+	}
+	dbInfo.TotalWeight, _ = strconv.ParseFloat(v1[0], 64) //任务重量和称量重量_31.3/31.32
+	dbInfo.CurrentWeight, _ = strconv.ParseFloat(v1[1], 64)
+	dbInfo.TotalCount, _ = strconv.Atoi(v2[0])
+	dbInfo.CurrentCount, _ = strconv.Atoi(v2[1]) // 总袋数和当前袋数_1/1
+
 	var task scan.WeightTaskModel
-	if err := global.E_MSSQL.Raw(`SELECT TOP 1 * FROM [dbo].[备料配方称重任务单_主表] WHERE task_id = ?`, dbCode).Scan(&task).Error; err != nil {
-		global.GVA_LOG.Sugar().Errorf("查询称重任务失败,单号：%s", dbCode)
-		return fmt.Errorf("查询单号：%s 称重任务失败: %w", dbCode, err)
+	if err := global.E_MSSQL.Raw(`SELECT TOP 1 * FROM [dbo].[备料配方称重任务单_主表] WHERE task_id = ?`, dbInfo.Code).Scan(&task).Error; err != nil {
+		global.GVA_LOG.Sugar().Errorf("查询称重任务失败,单号：%s", dbInfo.Code)
+		return fmt.Errorf("查询单号：%s 称重任务失败: %w", dbInfo.Code, err)
 	}
 	if task.TaskID == "" {
-		global.GVA_LOG.Sugar().Errorf("没有查询到称重任务,单号：%s", dbCode)
-		return fmt.Errorf("查询单号：%s 称重任务为空", dbCode)
+		global.GVA_LOG.Sugar().Errorf("没有查询到称重任务,单号：%s", dbInfo.Code)
+		return fmt.Errorf("查询单号：%s 称重任务为空", dbInfo.Code)
 	}
 
 	global.GVA_LOG.Sugar().Infof("查询成功,数据: %v", task)
 
 	// 💚 查询 球磨报工记录
 	var record scan.BallMillRecordModel
-	if err := global.E_MSSQL.Raw(`SELECT TOP 1 * FROM [dbo].[球磨报工记录单_主表] WHERE 本单编码 = ?`, dbCode).Scan(&record).Error; err != nil {
-		global.GVA_LOG.Sugar().Errorf("🔴查询球磨报工记录失败,单号：%s", dbCode)
-		return fmt.Errorf("🔴查询单号：%s 球磨报工记录失败: %w", dbCode, err)
+	if err := global.E_MSSQL.Raw(`SELECT TOP 1 * FROM [dbo].[球磨报工记录单_主表] WHERE 本单编码 = ?`, dbInfo.Code).Scan(&record).Error; err != nil {
+		global.GVA_LOG.Sugar().Errorf("🔴查询球磨报工记录失败,单号：%s", dbInfo.Code)
+		return fmt.Errorf("🔴查询单号：%s 球磨报工记录失败: %w", dbInfo.Code, err)
 	}
 	if record.Code == "" {
-		global.GVA_LOG.Sugar().Errorf("🔴没有查询到球磨报工记录,单号：%s", dbCode)
-		return fmt.Errorf("🔴查询单号：%s 球磨报工记录为空", dbCode)
+		global.GVA_LOG.Sugar().Errorf("🔴没有查询到球磨报工记录,单号：%s", dbInfo.Code)
+		return fmt.Errorf("🔴查询单号：%s 球磨报工记录为空", dbInfo.Code)
 	}
 	global.GVA_LOG.Sugar().Infof("查询球磨报工记录成功,数据: %v", record)
 
-	taskCompareInfo := string(task.BaseNo[len(task.BaseNo)-1]) + "0" + task.BallMillNumber[:2]
-	recordCompareInfo := string(record.FactoryCode[len(record.FactoryCode)-1]) + "0" + record.BallMill[:2]
-	// 记录关键信息
-	dbInfo := CacheDbInfo{
-		taskCompareInfo,
-		recordCompareInfo,
-	}
+	dbInfo.TaskInfo = string(task.BaseNo[len(task.BaseNo)-1]) + "0" + task.BallMillNumber[:2]
+	dbInfo.RecordInfo = string(record.FactoryCode[len(record.FactoryCode)-1]) + "0" + record.BallMill[:2]
 
 	// 存储二者的基地+球磨机号   一致的话再和 球磨机二维码缓存对比
 	if ballCachedValue, found := global.ScanCache.Get(BallCacheKey); found {
 		if ballCachedValue == dbInfo.TaskInfo && ballCachedValue == dbInfo.RecordInfo {
 			// 匹配成功
-			global.GVA_LOG.Sugar().Infof("✔ 匹配成功,单号信息：%s ,球磨机二维码信息：%s", dbCode, ballCachedValue)
+			global.GVA_LOG.Sugar().Infof("✔ 匹配成功,单号信息：%s ,球磨机二维码信息：%s", dbInfo.Code, ballCachedValue)
+
+			// 累积重量和成功次数
+			updateOkTaskInfoByCode(dbInfo)
 
 			global.ScanCache.Delete(DbCacheKey)
 			global.ScanCache.Delete(BallCacheKey)
 			// io模块 一致绿灯
 			go func() {
+				SendTcpCmd(CmdCloseRed)
 				SendTcpCmd(CmdOpenGreen)
 				time.Sleep(time.Second * 5)
 				SendTcpCmd(CmdCloseGreen)
@@ -285,10 +357,13 @@ func (s *ScanService) HandleScanInfoPublic(ctx context.Context, code string) err
 		} else {
 			global.GVA_LOG.Sugar().Errorf("❌匹配失败,称重任务信息：%s,球磨报告记录信息：%s,球磨机二维码信息：%s", dbInfo.TaskInfo, dbInfo.RecordInfo, ballCachedValue)
 
+			// 累计失败次数
+			updateErrorTaskInfoByCode(dbInfo)
 			global.ScanCache.Delete(DbCacheKey)
 			global.ScanCache.Delete(BallCacheKey)
 
 			// io模块 不一致红灯
+			SendTcpCmd(CmdCloseGreen)
 			SendTcpCmd(CmdOpenRed)
 			return fmt.Errorf("❌匹配失败,称重任务信息：%s,球磨报告记录信息：%s,球磨机二维码信息：%s", dbInfo.TaskInfo, dbInfo.RecordInfo, ballCachedValue)
 		}
