@@ -1,22 +1,22 @@
 #  Global Configuration
 # 扫码对比相关配置
 scan-compare:
-  expires-time: 1h              # 扫码后信息缓存时长
-  eio-ip: 192.168.1.100
-  eio-port: 12345
+  expires-time: 2h              # 扫码后信息缓存时长
+  eio-ip: 192.168.0.120
+  eio-port: 502
 
   # sql server
 mssql:
-  path: 192.168.1.100
-  port: 11433
+  path: 110.189.172.49
+  port: 8888
   config: ""
-  db-name: dbtest1
-  username: sa
-  password: 1162084Xx@
+  db-name: jmt
+  username: wms
+  password: JYabc@123
   max-idle-conns: 10
   max-open-conns: 100
   log-mode: ""
-  log-zap: false
+  log-zap: true
 
 
 # jwt configuration
@@ -39,8 +39,8 @@ zap:
 
 # system configuration
 system:
-  env: local # 修改为public可以关闭路由日志输出
-  addr: 8888
+  env: public # 修改为public可以关闭路由日志输出
+  addr: 18888
   db-type: sqlite
   oss-type: local # 控制oss选择走本地还是 七牛等其他仓 自行增加其他oss仓可以在 server/utils/upload/upload.go 中 NewOss函数配置
   use-redis: false # 使用redis
