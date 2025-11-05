@@ -4,6 +4,7 @@ import (
 	"github.com/flipped-aurora/gin-vue-admin/server/core"
 	"github.com/flipped-aurora/gin-vue-admin/server/global"
 	"github.com/flipped-aurora/gin-vue-admin/server/initialize"
+	"github.com/gin-gonic/gin"
 	_ "go.uber.org/automaxprocs"
 	"go.uber.org/zap"
 )
@@ -31,6 +32,8 @@ import (
 // @name                        x-token
 // @BasePath                    /
 func main() {
+	// 👇 在程序最开始强制设置为 release 模式
+	gin.SetMode(gin.ReleaseMode)
 	// 初始化系统
 	initializeSystem()
 	// ====== 2. 嵌入 dist（现在就在当前目录下） ======
