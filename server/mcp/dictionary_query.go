@@ -1,5 +1,6 @@
 package mcpTool
 
+/* 2025-11-06
 import (
 	"context"
 	"encoding/json"
@@ -237,3 +238,4 @@ func (d *DictionaryQuery) Handle(ctx context.Context, request mcp.CallToolReques
 		},
 	}, nil
 }
+*/

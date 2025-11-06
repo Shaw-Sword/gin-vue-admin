@@ -1,5 +1,6 @@
 package system
 
+/* 2025-11-06
 import (
 	"context"
 	"github.com/flipped-aurora/gin-vue-admin/server/global"
@@ -43,3 +44,4 @@ func (s *autoCodeTemplate) CreateMcp(ctx context.Context, info request.AutoMcpTo
 	return
 
 }
+*/

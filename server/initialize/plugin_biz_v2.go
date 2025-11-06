@@ -1,5 +1,6 @@
 package initialize
 
+/*  2025-10-27
 import (
 	"github.com/flipped-aurora/gin-vue-admin/server/plugin/announcement"
 	"github.com/flipped-aurora/gin-vue-admin/server/utils/plugin/v2"
@@ -14,3 +15,4 @@ func PluginInitV2(group *gin.Engine, plugins ...plugin.Plugin) {
 func bizPluginV2(engine *gin.Engine) {
 	PluginInitV2(engine, announcement.Plugin)
 }
+*/

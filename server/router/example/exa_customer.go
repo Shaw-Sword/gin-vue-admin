@@ -1,5 +1,6 @@
 package example
 
+/* 2025-11-06
 import (
 	"github.com/flipped-aurora/gin-vue-admin/server/middleware"
 	"github.com/gin-gonic/gin"
@@ -20,3 +21,4 @@ func (e *CustomerRouter) InitCustomerRouter(Router *gin.RouterGroup) {
 		customerRouterWithoutRecord.GET("customerList", exaCustomerApi.GetExaCustomerList) // 获取客户列表
 	}
 }
+*/

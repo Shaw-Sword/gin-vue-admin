@@ -1,5 +1,6 @@
 package system
 
+/*  2025-10-27
 import (
 	"github.com/flipped-aurora/gin-vue-admin/server/global"
 	"github.com/flipped-aurora/gin-vue-admin/server/model/common/request"
@@ -122,3 +123,4 @@ func (s *OperationRecordApi) GetSysOperationRecordList(c *gin.Context) {
 		PageSize: pageInfo.PageSize,
 	}, "获取成功", c)
 }
+*/

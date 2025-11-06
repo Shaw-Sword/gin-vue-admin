@@ -1,5 +1,6 @@
 package system
 
+/* 2025-11-06
 import (
 	"errors"
 	"fmt"
@@ -324,3 +325,4 @@ func (apiService *ApiService) DeleteApisByIds(ids request.IdsReq) (err error) {
 		return err
 	})
 }
+*/

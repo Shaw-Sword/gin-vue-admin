@@ -1,5 +1,6 @@
 package ast
 
+/* 2025-11-06
 import (
 	"fmt"
 	"go/ast"
@@ -122,3 +123,4 @@ func (a *PluginInitializeRouter) Format(filename string, writer io.Writer, file 
 	}
 	return a.Base.Format(filename, writer, file)
 }
+*/

@@ -1,5 +1,6 @@
 package system
 
+/*  2025-10-27
 import (
 	"github.com/flipped-aurora/gin-vue-admin/server/global"
 	"github.com/flipped-aurora/gin-vue-admin/server/model/common/response"
@@ -200,3 +201,4 @@ func (a *AuthorityApi) SetDataAuthority(c *gin.Context) {
 	}
 	response.OkWithMessage("设置成功", c)
 }
+*/

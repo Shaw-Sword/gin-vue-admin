@@ -1,5 +1,6 @@
 package upload
 
+/* 2025-11-06
 import (
 	"context"
 	"errors"
@@ -59,3 +60,4 @@ func NewClient() *cos.Client {
 	})
 	return client
 }
+*/

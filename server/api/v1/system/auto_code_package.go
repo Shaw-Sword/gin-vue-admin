@@ -1,5 +1,6 @@
 package system
 
+/*  2025-10-27
 import (
 	"github.com/flipped-aurora/gin-vue-admin/server/global"
 	common "github.com/flipped-aurora/gin-vue-admin/server/model/common/request"
@@ -98,3 +99,4 @@ func (a *AutoCodePackageApi) Templates(c *gin.Context) {
 	}
 	response.OkWithDetailed(data, "获取成功", c)
 }
+*/

@@ -1,5 +1,6 @@
 package email
 
+/* 2025-11-06
 import (
 	"github.com/flipped-aurora/gin-vue-admin/server/plugin/email/global"
 	"github.com/flipped-aurora/gin-vue-admin/server/plugin/email/router"
@@ -27,3 +28,4 @@ func (*emailPlugin) Register(group *gin.RouterGroup) {
 func (*emailPlugin) RouterPath() string {
 	return "email"
 }
+*/

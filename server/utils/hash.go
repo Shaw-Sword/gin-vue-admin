@@ -1,5 +1,6 @@
 package utils
 
+/* 2025-11-06
 import (
 	"crypto/md5"
 	"encoding/hex"
@@ -29,3 +30,4 @@ func MD5V(str []byte, b ...byte) string {
 	h.Write(str)
 	return hex.EncodeToString(h.Sum(b))
 }
+*/

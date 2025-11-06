@@ -28,15 +28,33 @@ func GormMssql() *gorm.DB {
 		DSN:               m.Dsn(), // DSN data source name
 		DefaultStringSize: 191,     // string 类型字段的默认长度
 	}
+	global.GVA_LOG.Info("sqlserver正在尝试连接......")
 	// 数据库配置
 	general := m.GeneralDB
 	if db, err := gorm.Open(sqlserver.New(mssqlConfig), internal.Gorm.Config(general)); err != nil {
+		//global.GVA_LOG.Sugar().Fatalf("sqlserver连接失败:%v", err)
+		global.GVA_LOG.Sugar().Errorf("sqlserver连接失败:%v", err)
 		return nil
+
 	} else {
+		global.GVA_LOG.Info("sqlserver连接成功")
 		db.InstanceSet("gorm:table_options", "ENGINE="+m.Engine)
 		sqlDB, _ := db.DB()
 		sqlDB.SetMaxIdleConns(m.MaxIdleConns)
 		sqlDB.SetMaxOpenConns(m.MaxOpenConns)
+
+		// 数据库反向生成需要  正式环境移除
+		// 为 SQL Server 2008 添加特殊配置
+		//db.Set("gorm:table_options", "ENGINE=InnoDB")
+		//
+		//// 关键：禁用 OFFSET FETCH
+		//sqlDB, err := db.DB()
+		//if err == nil {
+		//	// 设置连接参数，使用兼容 SQL Server 2008 的语法
+		//	db.Exec("SET ANSI_NULLS ON")
+		//	db.Exec("SET QUOTED_IDENTIFIER ON")
+		//}
+
 		return db
 	}
 }

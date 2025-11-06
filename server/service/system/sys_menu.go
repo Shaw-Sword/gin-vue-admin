@@ -1,5 +1,6 @@
 package system
 
+/* 2025-11-06
 import (
 	"errors"
 	"github.com/flipped-aurora/gin-vue-admin/server/global"
@@ -329,3 +330,4 @@ func (menuService *MenuService) UserAuthorityDefaultRouter(user *system.SysUser)
 		user.Authority.DefaultRouter = "404"
 	}
 }
+*/

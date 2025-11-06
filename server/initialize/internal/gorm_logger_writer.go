@@ -2,6 +2,8 @@ package internal
 
 import (
 	"fmt"
+	"path/filepath"
+
 	"github.com/flipped-aurora/gin-vue-admin/server/config"
 	"github.com/flipped-aurora/gin-vue-admin/server/global"
 	"gorm.io/gorm/logger"
@@ -18,6 +20,13 @@ func NewWriter(config config.GeneralDB) *Writer {
 
 // Printf 格式化打印日志
 func (c *Writer) Printf(message string, data ...any) {
+
+	// 将绝对路径转为相对路径    // 2025-11-04
+	for i, v := range data {
+		if s, ok := v.(string); ok {
+			data[i] = filepath.Base(s) // 只保留文件名，去掉目录
+		}
+	}
 
 	// 当有日志时候均需要输出到控制台
 	fmt.Printf(message, data...)

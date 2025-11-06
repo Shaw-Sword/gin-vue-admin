@@ -1,5 +1,6 @@
 package system
 
+/*  2025-10-27
 import (
 	"github.com/flipped-aurora/gin-vue-admin/server/middleware"
 	"github.com/gin-gonic/gin"
@@ -32,3 +33,4 @@ func (s *SysExportTemplateRouter) InitSysExportTemplateRouter(Router *gin.Router
 		sysExportTemplateRouterWithoutAuth.GET("exportTemplateByToken", exportTemplateApi.ExportTemplateByToken) // 通过token导出模板
 	}
 }
+*/

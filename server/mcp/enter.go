@@ -1,5 +1,6 @@
 package mcpTool
 
+/* 2025-11-06
 import (
 	"context"
 	"github.com/mark3labs/mcp-go/mcp"
@@ -29,3 +30,4 @@ func RegisterAllTools(mcpServer *server.MCPServer) {
 		mcpServer.AddTool(tool.New(), tool.Handle)
 	}
 }
+*/

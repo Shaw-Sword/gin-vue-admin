@@ -1,5 +1,6 @@
 package example
 
+/* 2025-11-06
 import (
 	"github.com/flipped-aurora/gin-vue-admin/server/global"
 	"github.com/flipped-aurora/gin-vue-admin/server/model/common/response"
@@ -133,3 +134,4 @@ func (b *FileUploadAndDownloadApi) ImportURL(c *gin.Context) {
 	}
 	response.OkWithMessage("导入URL成功", c)
 }
+*/

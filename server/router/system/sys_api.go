@@ -1,5 +1,6 @@
 package system
 
+/*  2025-10-27
 import (
 	"github.com/flipped-aurora/gin-vue-admin/server/middleware"
 	"github.com/gin-gonic/gin"
@@ -31,3 +32,4 @@ func (s *ApiRouter) InitApiRouter(Router *gin.RouterGroup, RouterPub *gin.Router
 		apiPublicRouterWithoutRecord.GET("freshCasbin", apiRouterApi.FreshCasbin) // 刷新casbin权限
 	}
 }
+*/

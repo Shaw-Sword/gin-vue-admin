@@ -1,5 +1,6 @@
 package upload
 
+/* 2025-11-06
 import (
 	"errors"
 	"io"
@@ -107,3 +108,4 @@ func (*Local) DeleteFile(key string) error {
 
 	return nil
 }
+*/

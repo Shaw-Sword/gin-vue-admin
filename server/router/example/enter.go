@@ -5,13 +5,13 @@ import (
 )
 
 type RouterGroup struct {
-	CustomerRouter
-	FileUploadAndDownloadRouter
+	//CustomerRouter
+	//FileUploadAndDownloadRouter
 	AttachmentCategoryRouter
 }
 
 var (
-	exaCustomerApi              = api.ApiGroupApp.ExampleApiGroup.CustomerApi
-	exaFileUploadAndDownloadApi = api.ApiGroupApp.ExampleApiGroup.FileUploadAndDownloadApi
-	attachmentCategoryApi       = api.ApiGroupApp.ExampleApiGroup.AttachmentCategoryApi
+	//exaCustomerApi              = api.ApiGroupApp.ExampleApiGroup.CustomerApi
+	//exaFileUploadAndDownloadApi = api.ApiGroupApp.ExampleApiGroup.FileUploadAndDownloadApi
+	attachmentCategoryApi = api.ApiGroupApp.ExampleApiGroup.AttachmentCategoryApi
 )

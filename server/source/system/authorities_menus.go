@@ -1,5 +1,6 @@
 package system
 
+/* 2025-11-06
 import (
 	"context"
 
@@ -119,3 +120,4 @@ func (i *initMenuAuthority) DataInserted(ctx context.Context) bool {
 	}
 	return false
 }
+*/

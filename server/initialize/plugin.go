@@ -1,5 +1,6 @@
 package initialize
 
+/*  2025-10-27
 import (
 	"github.com/flipped-aurora/gin-vue-admin/server/global"
 	"github.com/gin-gonic/gin"
@@ -13,3 +14,4 @@ func InstallPlugin(PrivateGroup *gin.RouterGroup, PublicRouter *gin.RouterGroup,
 	bizPluginV1(PrivateGroup, PublicRouter)
 	bizPluginV2(engine)
 }
+*/

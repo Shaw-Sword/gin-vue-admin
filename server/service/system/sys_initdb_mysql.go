@@ -1,5 +1,6 @@
 package system
 
+/* 2025-11-06
 import (
 	"context"
 	"errors"
@@ -95,3 +96,4 @@ func (h MysqlInitHandler) InitData(ctx context.Context, inits initSlice) error {
 	color.Info.Printf(InitSuccess, Mysql)
 	return nil
 }
+*/

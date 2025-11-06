@@ -1,5 +1,6 @@
 package system
 
+/* 2025-11-06
 import (
 	"context"
 	"encoding/json"
@@ -451,3 +452,4 @@ func (s *autoCodeTemplate) addTemplateToFile(t string, info request.AutoFunc) er
 
 	return nil
 }
+*/

@@ -1,5 +1,6 @@
 package system
 
+/* 2025-11-06
 import (
 	"context"
 	sysModel "github.com/flipped-aurora/gin-vue-admin/server/model/system"
@@ -104,3 +105,4 @@ func (i *initUser) DataInserted(ctx context.Context) bool {
 	}
 	return len(record.Authorities) > 0 && record.Authorities[0].AuthorityId == 888
 }
+*/

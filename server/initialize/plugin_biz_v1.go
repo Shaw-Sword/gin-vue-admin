@@ -1,5 +1,6 @@
 package initialize
 
+/*  2025-10-27
 import (
 	"fmt"
 
@@ -34,3 +35,4 @@ func bizPluginV1(group ...*gin.RouterGroup) {
 	))
 	holder(public, private)
 }
+*/

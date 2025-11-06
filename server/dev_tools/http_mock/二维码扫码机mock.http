@@ -1,0 +1,17 @@
+### GET request to example server     球磨机二维码信息
+GET http://127.0.0.1:8888/scan_compare?1016
+
+###
+
+
+### GET request to example server     2025/10/22 14:03_QMBG2510-00808_2025_Y3932_E1+LF1+LC1_19.9/19.88_1/1
+GET http://127.0.0.1:8888/scan_compare?2025/10/22 14:03_QMBG2503-00900_2025_Y3932_E1+LF1+LC1_19.9/19.88_1/1
+
+###
+
+### Post
+POST http://127.0.0.1:8888/scan_compare
+
+QMBG2503-00900
+
+###

@@ -1,5 +1,6 @@
 package system
 
+/*  2025-10-27
 import (
 	"github.com/flipped-aurora/gin-vue-admin/server/global"
 	"github.com/flipped-aurora/gin-vue-admin/server/model/common/request"
@@ -321,3 +322,4 @@ func (s *SystemApiApi) FreshCasbin(c *gin.Context) {
 	}
 	response.OkWithMessage("刷新成功", c)
 }
+*/

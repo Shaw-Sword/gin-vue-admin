@@ -1,5 +1,6 @@
 package mcpTool
 
+/* 2025-11-06
 import (
 	"context"
 	"encoding/json"
@@ -56,7 +57,7 @@ func (t *RequirementAnalyzer) New() mcp.Tool {
 
 ** 推荐工作流：**
  requirement_analyzer → gva_analyze → gva_execute → 其他辅助工具
- 
+
  `),
 		mcp.WithString("userRequirement",
 			mcp.Required(),
@@ -197,3 +198,4 @@ func (t *RequirementAnalyzer) generateAIPrompt(userRequirement string) string {
 
 	return prompt
 }
+*/

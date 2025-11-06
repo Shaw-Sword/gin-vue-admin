@@ -1,5 +1,6 @@
 package upload
 
+/* 2025-11-06
 import (
 	"bytes"
 	"context"
@@ -104,3 +105,4 @@ func (m *Minio) DeleteFile(key string) error {
 	err := m.Client.RemoveObject(ctx, m.bucket, key, minio.RemoveObjectOptions{})
 	return err
 }
+*/

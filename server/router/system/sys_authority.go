@@ -1,5 +1,6 @@
 package system
 
+/*  2025-10-27
 import (
 	"github.com/flipped-aurora/gin-vue-admin/server/middleware"
 	"github.com/gin-gonic/gin"
@@ -21,3 +22,4 @@ func (s *AuthorityRouter) InitAuthorityRouter(Router *gin.RouterGroup) {
 		authorityRouterWithoutRecord.POST("getAuthorityList", authorityApi.GetAuthorityList) // 获取角色列表
 	}
 }
+*/

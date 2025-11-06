@@ -1,5 +1,6 @@
 package system
 
+/*  2025-10-27
 import (
 	"github.com/flipped-aurora/gin-vue-admin/server/middleware"
 	"github.com/gin-gonic/gin"
@@ -24,3 +25,4 @@ func (s *DictionaryDetailRouter) InitSysDictionaryDetailRouter(Router *gin.Route
 		dictionaryDetailRouterWithoutRecord.GET("getDictionaryPath", dictionaryDetailApi.GetDictionaryPath)                       // 获取字典详情的完整路径
 	}
 }
+*/

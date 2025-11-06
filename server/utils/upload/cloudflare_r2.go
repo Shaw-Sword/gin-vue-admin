@@ -1,5 +1,6 @@
 package upload
 
+/* 2025-11-06
 import (
 	"errors"
 	"fmt"
@@ -83,3 +84,4 @@ func (*CloudflareR2) newSession() *session.Session {
 		),
 	}))
 }
+*/

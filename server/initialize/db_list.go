@@ -1,5 +1,6 @@
 package initialize
 
+/*  2025-10-27
 import (
 	"github.com/flipped-aurora/gin-vue-admin/server/config"
 	"github.com/flipped-aurora/gin-vue-admin/server/global"
@@ -34,3 +35,4 @@ func DBList() {
 	}
 	global.GVA_DBList = dbMap
 }
+*/

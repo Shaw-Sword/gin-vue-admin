@@ -1,5 +1,6 @@
 package system
 
+/*  2025-10-27
 import (
 	"github.com/gin-gonic/gin"
 )
@@ -12,3 +13,4 @@ func (s *JwtRouter) InitJwtRouter(Router *gin.RouterGroup) {
 		jwtRouter.POST("jsonInBlacklist", jwtApi.JsonInBlacklist) // jwt加入黑名单
 	}
 }
+*/

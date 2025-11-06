@@ -1,5 +1,6 @@
 package system
 
+/*  2025-10-27
 import (
 	"encoding/json"
 	"fmt"
@@ -302,7 +303,7 @@ func (sysVersionApi *SysVersionApi) ExportVersion(c *gin.Context) {
 			Status: dict.Status,
 			Desc:   dict.Desc,
 		}
-		
+
 		// 处理字典详情数据，清除ID和时间戳字段
 		cleanDetails := make([]system.SysDictionaryDetail, 0, len(dict.SysDictionaryDetails))
 		for _, detail := range dict.SysDictionaryDetails {
@@ -317,7 +318,7 @@ func (sysVersionApi *SysVersionApi) ExportVersion(c *gin.Context) {
 			cleanDetails = append(cleanDetails, cleanDetail)
 		}
 		cleanDict.SysDictionaryDetails = cleanDetails
-		
+
 		processedDicts = append(processedDicts, cleanDict)
 	}
 
@@ -484,3 +485,4 @@ func (sysVersionApi *SysVersionApi) ImportVersion(c *gin.Context) {
 
 	response.OkWithMessage("导入成功", c)
 }
+*/

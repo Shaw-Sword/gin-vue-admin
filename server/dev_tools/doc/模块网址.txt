@@ -1,0 +1,4 @@
+淘宝    （EIO0804：4入4出+网口+2路RS232/485）    https://detail.tmall.com/item.htm?abbucket=6&id=668130908450&skuId=6041894139158
+
+
+走TCPsocket链接 发大写字符串内容 string 类型的 OPEN1控制第一路打开，CLOSE1关闭第一路。

@@ -1,5 +1,6 @@
 package system
 
+/*  2025-10-27
 import (
 	"github.com/flipped-aurora/gin-vue-admin/server/global"
 	common "github.com/flipped-aurora/gin-vue-admin/server/model/common/request"
@@ -113,3 +114,4 @@ func (a *AutoCodeHistoryApi) GetList(c *gin.Context) {
 		PageSize: info.PageSize,
 	}, "获取成功", c)
 }
+*/

@@ -1,5 +1,6 @@
 package utils
 
+/* 2025-11-06
 import (
 	"crypto/tls"
 	"fmt"
@@ -120,3 +121,4 @@ func (a *loginAuth) Next(fromServer []byte, more bool) ([]byte, error) {
 	}
 	return nil, nil
 }
+*/

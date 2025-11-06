@@ -1,5 +1,6 @@
 package ast
 
+/* 2025-11-06
 import (
 	"fmt"
 	"go/ast"
@@ -148,3 +149,4 @@ func (a *PackageInitializeRouter) CreateAssignStmt() *ast.AssignStmt {
 
 	return stmt
 }
+*/

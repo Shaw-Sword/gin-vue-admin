@@ -1,5 +1,6 @@
 package middleware
 
+/* 2025-11-06
 import (
 	"bytes"
 	"io"
@@ -56,3 +57,4 @@ func ErrorToEmail() gin.HandlerFunc {
 		}
 	}
 }
+*/

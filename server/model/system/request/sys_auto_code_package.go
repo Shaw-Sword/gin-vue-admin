@@ -1,5 +1,6 @@
 package request
 
+/* 2025-11-06
 import (
 	"github.com/flipped-aurora/gin-vue-admin/server/global"
 	model "github.com/flipped-aurora/gin-vue-admin/server/model/system"
@@ -29,3 +30,4 @@ func (r *SysAutoCodePackageCreate) Create() model.SysAutoCodePackage {
 		Module:      global.GVA_CONFIG.AutoCode.Module,
 	}
 }
+*/

@@ -1,5 +1,6 @@
 package system
 
+/* 2025-11-06
 import (
 	"context"
 	"fmt"
@@ -740,3 +741,4 @@ func (s *autoCodePackage) templates(ctx context.Context, entity model.SysAutoCod
 	}
 	return code, asts, creates, nil
 }
+*/

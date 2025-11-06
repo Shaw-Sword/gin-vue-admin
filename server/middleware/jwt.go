@@ -1,5 +1,9 @@
 package middleware
 
+/* 2025-11-06
+import "github.com/flipped-aurora/gin-vue-admin/server/global"
+
+
 import (
 	"errors"
 	"github.com/flipped-aurora/gin-vue-admin/server/global"
@@ -60,10 +64,13 @@ func JWTAuth() gin.HandlerFunc {
 			c.Header("new-token", newToken)
 			c.Header("new-expires-at", strconv.FormatInt(newClaims.ExpiresAt.Unix(), 10))
 			utils.SetToken(c, newToken, int(dr.Seconds()))
+
+
 			if global.GVA_CONFIG.System.UseMultipoint {
 				// 记录新的活跃jwt
 				_ = utils.SetRedisJWT(newToken, newClaims.Username)
 			}
+
 		}
 		c.Next()
 
@@ -86,3 +93,4 @@ func isBlacklist(jwt string) bool {
 	_, ok := global.BlackCache.Get(jwt)
 	return ok
 }
+*/

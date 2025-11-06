@@ -1,5 +1,6 @@
 package example
 
+/* 2025-11-06
 import (
 	"errors"
 	"mime/multipart"
@@ -121,3 +122,4 @@ func (e *FileUploadAndDownloadService) UploadFile(header *multipart.FileHeader, 
 func (e *FileUploadAndDownloadService) ImportURL(file *[]example.ExaFileUploadAndDownload) error {
 	return global.GVA_DB.Create(&file).Error
 }
+*/

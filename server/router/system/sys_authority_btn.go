@@ -1,5 +1,6 @@
 package system
 
+/*  2025-10-27
 import (
 	"github.com/gin-gonic/gin"
 )
@@ -17,3 +18,4 @@ func (s *AuthorityBtnRouter) InitAuthorityBtnRouterRouter(Router *gin.RouterGrou
 		authorityRouterWithoutRecord.POST("canRemoveAuthorityBtn", authorityBtnApi.CanRemoveAuthorityBtn)
 	}
 }
+*/

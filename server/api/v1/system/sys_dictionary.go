@@ -1,5 +1,6 @@
 package system
 
+/*  2025-10-27
 import (
 	"github.com/flipped-aurora/gin-vue-admin/server/global"
 	"github.com/flipped-aurora/gin-vue-admin/server/model/common/response"
@@ -135,3 +136,4 @@ func (s *DictionaryApi) GetSysDictionaryList(c *gin.Context) {
 	}
 	response.OkWithDetailed(list, "获取成功", c)
 }
+*/

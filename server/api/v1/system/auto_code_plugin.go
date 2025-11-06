@@ -1,5 +1,6 @@
 package system
 
+/*  2025-10-27
 import (
 	"fmt"
 	"github.com/flipped-aurora/gin-vue-admin/server/global"
@@ -117,3 +118,4 @@ func (a *AutoCodePluginApi) InitAPI(c *gin.Context) {
 	}
 	response.OkWithMessage("文件变更成功", c)
 }
+*/

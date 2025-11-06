@@ -1,5 +1,6 @@
 package initialize
 
+/*  2025-10-27
 import (
 	"context"
 	"fmt"
@@ -153,3 +154,4 @@ func (m *mongo) CreateIndexes(ctx context.Context, name string, indexes [][]stri
 	}
 	return nil
 }
+*/

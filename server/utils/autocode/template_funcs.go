@@ -1,5 +1,6 @@
 package autocode
 
+/* 2025-11-06
 import (
 	"fmt"
 	systemReq "github.com/flipped-aurora/gin-vue-admin/server/model/system/request"
@@ -711,3 +712,4 @@ func GenerateSearchField(field systemReq.AutoCodeField) string {
 
 	return result
 }
+*/

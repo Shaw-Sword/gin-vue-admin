@@ -1,5 +1,6 @@
 package system
 
+/* 2025-11-06
 import (
 	"context"
 	"errors"
@@ -99,3 +100,4 @@ func (h PgsqlInitHandler) InitData(ctx context.Context, inits initSlice) error {
 	color.Info.Printf(InitSuccess, Pgsql)
 	return nil
 }
+*/

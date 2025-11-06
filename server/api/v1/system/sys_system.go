@@ -1,5 +1,6 @@
 package system
 
+/*  2025-10-27
 import (
 	"github.com/flipped-aurora/gin-vue-admin/server/global"
 	"github.com/flipped-aurora/gin-vue-admin/server/model/common/response"
@@ -87,3 +88,4 @@ func (s *SystemApi) GetServerInfo(c *gin.Context) {
 	}
 	response.OkWithDetailed(gin.H{"server": server}, "获取成功", c)
 }
+*/

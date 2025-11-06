@@ -1,5 +1,6 @@
 package example
 
+/* 2025-11-06
 import (
 	"github.com/flipped-aurora/gin-vue-admin/server/global"
 	"github.com/flipped-aurora/gin-vue-admin/server/model/common/request"
@@ -85,3 +86,4 @@ func (exa *CustomerService) GetCustomerInfoList(sysUserAuthorityID uint, info re
 	}
 	return CustomerList, total, err
 }
+*/

@@ -1,5 +1,6 @@
 package ast
 
+/* 2025-11-06
 import (
 	"go/ast"
 	"go/token"
@@ -92,3 +93,4 @@ func (a *Import) Injection(file *ast.File) error {
 func (a *Import) Format(filename string, writer io.Writer, file *ast.File) error {
 	return a.Base.Format(filename, writer, file)
 }
+*/

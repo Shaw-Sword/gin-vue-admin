@@ -1,5 +1,6 @@
 package ast
 
+/* 2025-11-06
 import (
 	"fmt"
 	"go/ast"
@@ -194,3 +195,4 @@ func (a *PackageInitializeGorm) addDbVar(astBody *ast.BlockStmt) {
 	returnNode := astBody.List[len(astBody.List)-1]
 	astBody.List = append(astBody.List[:len(astBody.List)-1], assignNode, autoMigrateCall, returnNode)
 }
+*/

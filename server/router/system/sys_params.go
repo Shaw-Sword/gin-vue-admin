@@ -1,5 +1,6 @@
 package system
 
+/*  2025-10-27
 import (
 	"github.com/flipped-aurora/gin-vue-admin/server/middleware"
 	"github.com/gin-gonic/gin"
@@ -23,3 +24,4 @@ func (s *SysParamsRouter) InitSysParamsRouter(Router *gin.RouterGroup, PublicRou
 		sysParamsRouterWithoutRecord.GET("getSysParam", sysParamsApi.GetSysParam)           // 根据Key获取参数
 	}
 }
+*/

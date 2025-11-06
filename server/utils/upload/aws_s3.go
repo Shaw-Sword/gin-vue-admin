@@ -1,5 +1,6 @@
 package upload
 
+/* 2025-11-06
 import (
 	"errors"
 	"fmt"
@@ -95,3 +96,4 @@ func newSession() *session.Session {
 	})
 	return sess
 }
+*/
