@@ -1,5 +1,6 @@
 package system
 
+/* 2025-11-06
 import (
 	"bytes"
 	"encoding/json"
@@ -482,3 +483,4 @@ func getColumnName(n int) string {
 	}
 	return columnName
 }
+*/

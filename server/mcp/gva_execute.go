@@ -1,5 +1,6 @@
 package mcpTool
 
+/* 2025-11-06
 import (
 	"context"
 	"encoding/json"
@@ -94,7 +95,7 @@ func (g *GVAExecutor) New() mcp.Tool {
   "needCreatedDictionaries": "是否需要创建字典(bool)",
   "packageInfo": {
     "desc": "描述(string)",
-    "label": "展示名(string)", 
+    "label": "展示名(string)",
     "template": "package或plugin(string)，如果用户提到了使用插件则创建plugin，如果用户没有特定说明则一律选用package。",
     "packageName": "包名(string)"
   },
@@ -776,3 +777,4 @@ func (g *GVAExecutor) createDictionariesFromInfo(ctx context.Context, dictionari
 
 	return strings.Join(messages, "")
 }
+*/

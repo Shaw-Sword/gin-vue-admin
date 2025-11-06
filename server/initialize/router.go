@@ -5,7 +5,6 @@ import (
 	"os"
 
 	"github.com/flipped-aurora/gin-vue-admin/server/global"
-	"github.com/flipped-aurora/gin-vue-admin/server/middleware"
 	"github.com/flipped-aurora/gin-vue-admin/server/router"
 	"github.com/gin-gonic/gin"
 )
@@ -82,7 +81,7 @@ func Routers() *gin.Engine {
 	PublicGroup := Router.Group(global.GVA_CONFIG.System.RouterPrefix)
 	PrivateGroup := Router.Group(global.GVA_CONFIG.System.RouterPrefix)
 
-	PrivateGroup.Use(middleware.JWTAuth()).Use(middleware.CasbinHandler())
+	//PrivateGroup.Use(middleware.JWTAuth()).Use(middleware.CasbinHandler())
 
 	{
 		// 健康监测
@@ -91,7 +90,7 @@ func Routers() *gin.Engine {
 		})
 	}
 	{
-		systemRouter.InitBaseRouter(PublicGroup) // 注册基础功能路由 不做鉴权
+		//systemRouter.InitBaseRouter(PublicGroup) // 注册基础功能路由 不做鉴权
 		systemRouter.InitInitRouter(PublicGroup) // 自动初始化相关
 	}
 

@@ -1,5 +1,6 @@
 package system
 
+/* 2025-11-06
 import (
 	"context"
 	"encoding/json"
@@ -215,3 +216,4 @@ func (s *autoCodeHistory) DropTable(BusinessDb, tableName string) error {
 		return global.GVA_DB.Exec("DROP TABLE " + tableName).Error
 	}
 }
+*/

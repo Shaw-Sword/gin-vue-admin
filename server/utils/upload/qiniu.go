@@ -1,5 +1,6 @@
 package upload
 
+/* 2025-11-06
 import (
 	"context"
 	"errors"
@@ -94,3 +95,4 @@ func qiniuConfig() *storage.Config {
 	}
 	return &cfg
 }
+*/

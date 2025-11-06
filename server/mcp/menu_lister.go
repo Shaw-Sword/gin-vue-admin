@@ -1,5 +1,6 @@
 package mcpTool
 
+/* 2025-11-06
 import (
 	"context"
 	"encoding/json"
@@ -109,3 +110,4 @@ func (m *MenuLister) getAllMenus() ([]system.SysBaseMenu, error) {
 	}
 	return menus, nil
 }
+*/

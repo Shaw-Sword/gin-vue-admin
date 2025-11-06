@@ -1,5 +1,6 @@
 package system
 
+/* 2025-11-06
 import (
 	"bytes"
 	"context"
@@ -249,3 +250,4 @@ func (s *autoCodePlugin) InitAPI(apiInfo request.InitApi) (err error) {
 	os.WriteFile(apiPath, bf.Bytes(), 0666)
 	return nil
 }
+*/

@@ -1,5 +1,6 @@
 package ast
 
+/* 2025-11-06
 import (
 	"go/ast"
 	"go/token"
@@ -165,3 +166,4 @@ func (a *PluginEnter) Format(filename string, writer io.Writer, file *ast.File) 
 	}
 	return a.Base.Format(filename, writer, file)
 }
+*/

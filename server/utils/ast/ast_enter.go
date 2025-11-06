@@ -1,5 +1,6 @@
 package ast
 
+/* 2025-11-06
 import (
 	"bytes"
 	"go/ast"
@@ -179,3 +180,4 @@ func ImportReference(filepath, importCode, structName, packageName, groupName st
 	// 写回数据
 	return os.WriteFile(filepath, buffer.Bytes(), 0o600)
 }
+*/

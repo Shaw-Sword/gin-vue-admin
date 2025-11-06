@@ -1,5 +1,6 @@
 package system
 
+/* 2025-11-06
 import (
 	"errors"
 	"fmt"
@@ -316,3 +317,4 @@ func (userService *UserService) ResetPassword(ID uint, password string) (err err
 	err = global.GVA_DB.Model(&system.SysUser{}).Where("id = ?", ID).Update("password", utils.BcryptHash(password)).Error
 	return err
 }
+*/

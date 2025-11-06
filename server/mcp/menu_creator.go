@@ -1,5 +1,6 @@
 package mcpTool
 
+/* 2025-11-06
 import (
 	"context"
 	"encoding/json"
@@ -275,3 +276,4 @@ func (m *MenuCreator) Handle(ctx context.Context, request mcp.CallToolRequest) (
 		},
 	}, nil
 }
+*/

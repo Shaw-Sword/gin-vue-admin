@@ -1,5 +1,6 @@
 package upload
 
+/* 2025-11-06
 import (
 	"errors"
 	"mime/multipart"
@@ -73,3 +74,4 @@ func NewBucket() (*oss.Bucket, error) {
 
 	return bucket, nil
 }
+*/

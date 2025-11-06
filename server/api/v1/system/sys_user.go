@@ -1,5 +1,6 @@
 package system
 
+/* 2025-11-06
 import (
 	"time"
 
@@ -87,7 +88,7 @@ func (b *BaseApi) TokenNext(c *gin.Context, user system.SysUser) {
 		return
 	}
 
-	/* 2025-10-27  不需要 redis
+	// 2025-10-27  不需要 redis
 
 	if jwtStr, err := jwtService.GetRedisJWT(user.Username); err == redis.Nil {
 		if err := utils.SetRedisJWT(token, user.Username); err != nil {
@@ -123,9 +124,9 @@ func (b *BaseApi) TokenNext(c *gin.Context, user system.SysUser) {
 		}, "登录成功", c)
 	}
 
-	*/
+	// 不需要redis
 }
-
+*/
 /*    2025-10-27
 
 // Register

@@ -1,5 +1,6 @@
 package config
 
+/* 2025-11-06
 type Email struct {
 	To          string `mapstructure:"to" json:"to" yaml:"to"`                               // 收件人:多个以英文逗号分隔 例：a@qq.com b@qq.com 正式开发中请把此项目作为参数使用
 	From        string `mapstructure:"from" json:"from" yaml:"from"`                         // 发件人  你自己要发邮件的邮箱
@@ -10,3 +11,4 @@ type Email struct {
 	IsSSL       bool   `mapstructure:"is-ssl" json:"is-ssl" yaml:"is-ssl"`                   // 是否SSL   是否开启SSL
 	IsLoginAuth bool   `mapstructure:"is-loginauth" json:"is-loginauth" yaml:"is-loginauth"` // 是否LoginAuth   是否使用LoginAuth认证方式（适用于IBM、微软邮箱服务器等）
 }
+*/

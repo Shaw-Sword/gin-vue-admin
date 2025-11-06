@@ -1,5 +1,6 @@
 package system
 
+/* 2025-11-06
 import (
 	"time"
 
@@ -68,3 +69,4 @@ func interfaceToInt(v interface{}) (i int) {
 	}
 	return
 }
+*/

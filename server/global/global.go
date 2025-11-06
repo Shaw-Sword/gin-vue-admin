@@ -7,7 +7,7 @@ import (
 
 	"github.com/songzhibin97/gkit/cache/local_cache"
 
-	"golang.org/x/sync/singleflight"
+	//"golang.org/x/sync/singleflight"
 
 	"go.uber.org/zap"
 
@@ -29,9 +29,9 @@ var (
 	// GVA_LOG    *oplogging.Logger
 	GVA_LOG *zap.Logger
 	// GVA_Timer               timer.Timer = timer.NewTimerTask()
-	GVA_Concurrency_Control = &singleflight.Group{}
-	GVA_ROUTERS             gin.RoutesInfo
-	GVA_ACTIVE_DBNAME       *string
+	//GVA_Concurrency_Control = &singleflight.Group{}
+	GVA_ROUTERS       gin.RoutesInfo
+	GVA_ACTIVE_DBNAME *string
 	// GVA_MCP_SERVER          *server.MCPServer
 	BlackCache local_cache.Cache
 	ScanCache  local_cache.Cache // 扫码对比缓存

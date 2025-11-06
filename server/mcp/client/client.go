@@ -1,5 +1,6 @@
 package client
 
+/* 2025-11-06
 import (
 	"context"
 	"errors"
@@ -37,3 +38,4 @@ func NewClient(baseUrl, name, version, serverName string) (*mcpClient.Client, er
 	}
 	return client, nil
 }
+*/

@@ -1,5 +1,6 @@
 package mcpTool
 
+/* 2025-11-06
 import (
 	"context"
 	"encoding/json"
@@ -314,3 +315,4 @@ func (d *DictionaryOptionsGenerator) generateDictionaryName(dictType, fieldDesc 
 	}
 	return fmt.Sprintf("%s字典", dictType)
 }
+*/

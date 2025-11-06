@@ -1,5 +1,6 @@
 package request
 
+/* 2025-11-06
 import (
 	"encoding/json"
 	"fmt"
@@ -284,3 +285,4 @@ type LLMAutoCode struct {
 	Prompt string `json:"prompt" form:"prompt" gorm:"column:prompt;comment:提示语;type:text;"` //提示语
 	Mode   string `json:"mode" form:"mode" gorm:"column:mode;comment:模式;type:text;"`        //模式
 }
+*/

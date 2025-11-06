@@ -1,10 +1,6 @@
 package initialize
 
 import (
-	"bufio"
-	"os"
-	"strings"
-
 	"github.com/songzhibin97/gkit/cache/local_cache"
 
 	"github.com/flipped-aurora/gin-vue-admin/server/global"
@@ -35,10 +31,10 @@ func OtherInit() {
 		local_cache.SetDefaultExpire(cacheSaveDuration),
 	)
 
-	file, err := os.Open("go.mod")
-	if err == nil && global.GVA_CONFIG.AutoCode.Module == "" {
-		scanner := bufio.NewScanner(file)
-		scanner.Scan()
-		global.GVA_CONFIG.AutoCode.Module = strings.TrimPrefix(scanner.Text(), "module ")
-	}
+	//file, err := os.Open("go.mod")
+	//if err == nil && global.GVA_CONFIG.AutoCode.Module == "" {
+	//	scanner := bufio.NewScanner(file)
+	//	scanner.Scan()
+	//	global.GVA_CONFIG.AutoCode.Module = strings.TrimPrefix(scanner.Text(), "module ")
+	//}
 }

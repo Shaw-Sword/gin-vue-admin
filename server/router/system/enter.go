@@ -6,7 +6,7 @@ type RouterGroup struct {
 	// ApiRouter
 	// JwtRouter
 	// SysRouter
-	BaseRouter
+	//BaseRouter
 	InitRouter
 	MenuRouter
 	// UserRouter
@@ -25,7 +25,7 @@ type RouterGroup struct {
 var (
 	dbApi = api.ApiGroupApp.SystemApiGroup.DBApi
 	// jwtApi              = api.ApiGroupApp.SystemApiGroup.JwtApi
-	baseApi = api.ApiGroupApp.SystemApiGroup.BaseApi
+	//baseApi = api.ApiGroupApp.SystemApiGroup.BaseApi
 	// casbinApi           = api.ApiGroupApp.SystemApiGroup.CasbinApi
 	// systemApi           = api.ApiGroupApp.SystemApiGroup.SystemApi
 	// sysParamsApi        = api.ApiGroupApp.SystemApiGroup.SysParamsApi
@@ -34,7 +34,7 @@ var (
 	// apiRouterApi        = api.ApiGroupApp.SystemApiGroup.SystemApiApi
 	// dictionaryApi       = api.ApiGroupApp.SystemApiGroup.DictionaryApi
 	// authorityBtnApi     = api.ApiGroupApp.SystemApiGroup.AuthorityBtnApi
-	authorityMenuApi = api.ApiGroupApp.SystemApiGroup.AuthorityMenuApi
+	//authorityMenuApi = api.ApiGroupApp.SystemApiGroup.AuthorityMenuApi
 	// autoCodePluginApi   = api.ApiGroupApp.SystemApiGroup.AutoCodePluginApi
 	// autocodeHistoryApi  = api.ApiGroupApp.SystemApiGroup.AutoCodeHistoryApi
 	// operationRecordApi  = api.ApiGroupApp.SystemApiGroup.OperationRecordApi

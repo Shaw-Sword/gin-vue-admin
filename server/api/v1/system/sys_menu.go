@@ -1,5 +1,6 @@
 package system
 
+/* 2025-11-06
 import (
 	"github.com/flipped-aurora/gin-vue-admin/server/global"
 	"github.com/flipped-aurora/gin-vue-admin/server/model/common/response"
@@ -33,7 +34,7 @@ func (a *AuthorityMenuApi) GetMenu(c *gin.Context) {
 	}
 	response.OkWithDetailed(systemRes.SysMenusResponse{Menus: menus}, "获取成功", c)
 }
-
+*/
 /*  2025-10-27
 
 

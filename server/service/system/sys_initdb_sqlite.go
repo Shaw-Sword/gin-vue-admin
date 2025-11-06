@@ -3,16 +3,15 @@ package system
 import (
 	"context"
 	"errors"
-	"github.com/glebarez/sqlite"
-	"github.com/google/uuid"
-	"github.com/gookit/color"
-	"gorm.io/gorm"
-	"path/filepath"
 
 	"github.com/flipped-aurora/gin-vue-admin/server/config"
 	"github.com/flipped-aurora/gin-vue-admin/server/global"
 	"github.com/flipped-aurora/gin-vue-admin/server/model/system/request"
 	"github.com/flipped-aurora/gin-vue-admin/server/utils"
+	"github.com/glebarez/sqlite"
+	"github.com/google/uuid"
+	"github.com/gookit/color"
+	"gorm.io/gorm"
 )
 
 type SqliteInitHandler struct{}
@@ -58,7 +57,8 @@ func (h SqliteInitHandler) EnsureDB(ctx context.Context, conf *request.InitDB) (
 	}); err != nil {
 		return ctx, err
 	}
-	global.GVA_CONFIG.AutoCode.Root, _ = filepath.Abs("..")
+	// 2025-11-06
+	//global.GVA_CONFIG.AutoCode.Root, _ = filepath.Abs("..")
 	next = context.WithValue(next, "db", db)
 	return next, err
 }

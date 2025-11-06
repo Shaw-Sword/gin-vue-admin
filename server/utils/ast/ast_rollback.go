@@ -1,5 +1,6 @@
 package ast
 
+/* 2025-11-06
 import (
 	"bytes"
 	"fmt"
@@ -171,3 +172,4 @@ func RollRouterBack(pk, model string) {
 	os.Remove(path)
 	os.WriteFile(path, bf.Bytes(), 0666)
 }
+*/

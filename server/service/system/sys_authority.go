@@ -1,5 +1,6 @@
 package system
 
+/* 2025-11-06
 import (
 	"errors"
 	"strconv"
@@ -331,3 +332,4 @@ func (authorityService *AuthorityService) GetParentAuthorityID(authorityID uint)
 	}
 	return *authority.ParentId, nil
 }
+*/

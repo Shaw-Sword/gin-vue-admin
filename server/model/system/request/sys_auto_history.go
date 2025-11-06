@@ -1,5 +1,6 @@
 package request
 
+/* 2025-11-06
 import (
 	common "github.com/flipped-aurora/gin-vue-admin/server/model/common/request"
 	model "github.com/flipped-aurora/gin-vue-admin/server/model/system"
@@ -55,3 +56,4 @@ func (r *SysAutoHistoryRollBack) ApiIds(entity model.SysAutoCodeHistory) common.
 	}
 	return common.IdsReq{Ids: ids}
 }
+*/

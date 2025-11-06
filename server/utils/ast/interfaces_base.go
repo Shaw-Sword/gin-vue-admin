@@ -1,5 +1,6 @@
 package ast
 
+/* 2025-11-06
 import (
 	"github.com/flipped-aurora/gin-vue-admin/server/global"
 	"github.com/pkg/errors"
@@ -74,3 +75,4 @@ func (a *Base) AbsolutePath(filePath string) string {
 	filePath = filepath.Join(server, filePath)
 	return filePath
 }
+*/

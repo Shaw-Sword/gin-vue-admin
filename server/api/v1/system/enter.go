@@ -5,14 +5,14 @@ import "github.com/flipped-aurora/gin-vue-admin/server/service"
 type ApiGroup struct {
 	DBApi
 	// JwtApi
-	BaseApi
+	//BaseApi
 	// SystemApi
 	// CasbinApi
 	// AutoCodeApi
 	// SystemApiApi
 	// AuthorityApi
 	// DictionaryApi
-	AuthorityMenuApi
+	//AuthorityMenuApi
 	// OperationRecordApi
 	// DictionaryDetailApi
 	// AuthorityBtnApi
@@ -27,9 +27,9 @@ type ApiGroup struct {
 
 var (
 	// apiService              = service.ServiceGroupApp.SystemServiceGroup.ApiService
-	jwtService    = service.ServiceGroupApp.SystemServiceGroup.JwtService
-	menuService   = service.ServiceGroupApp.SystemServiceGroup.MenuService
-	userService   = service.ServiceGroupApp.SystemServiceGroup.UserService
+	jwtService = service.ServiceGroupApp.SystemServiceGroup.JwtService
+	//menuService   = service.ServiceGroupApp.SystemServiceGroup.MenuService
+	//userService   = service.ServiceGroupApp.SystemServiceGroup.UserService
 	initDBService = service.ServiceGroupApp.SystemServiceGroup.InitDBService
 	// casbinService           = service.ServiceGroupApp.SystemServiceGroup.CasbinService
 	// baseMenuService         = service.ServiceGroupApp.SystemServiceGroup.BaseMenuService

@@ -29,7 +29,8 @@ func Gorm() *gorm.DB {
 		global.GVA_ACTIVE_DBNAME = &global.GVA_CONFIG.Sqlite.Dbname
 		return GormSqlite()
 	default:
-		global.GVA_ACTIVE_DBNAME = &global.GVA_CONFIG.Mysql.Dbname
+		//global.GVA_ACTIVE_DBNAME = &global.GVA_CONFIG.Mysql.Dbname
+		global.GVA_ACTIVE_DBNAME = &global.GVA_CONFIG.Sqlite.Dbname
 		return GormSqlite()
 	}
 }

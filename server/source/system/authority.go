@@ -1,5 +1,6 @@
 package system
 
+/* 2025-11-06
 import (
 	"context"
 	sysModel "github.com/flipped-aurora/gin-vue-admin/server/model/system"
@@ -86,3 +87,4 @@ func (i *initAuthority) DataInserted(ctx context.Context) bool {
 	}
 	return true
 }
+*/

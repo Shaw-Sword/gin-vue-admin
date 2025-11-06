@@ -1,5 +1,6 @@
 package system
 
+/* 2025-11-06
 import (
 	"github.com/gin-gonic/gin"
 )
@@ -14,3 +15,4 @@ func (s *BaseRouter) InitBaseRouter(Router *gin.RouterGroup) (R gin.IRoutes) {
 	}
 	return baseRouter
 }
+*/

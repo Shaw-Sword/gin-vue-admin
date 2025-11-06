@@ -1,5 +1,6 @@
 package ast
 
+/* 2025-11-06
 import (
 	"go/ast"
 	"io"
@@ -109,3 +110,4 @@ func (a *PluginInitializeGorm) Format(filename string, writer io.Writer, file *a
 	}
 	return a.Base.Format(filename, writer, file)
 }
+*/

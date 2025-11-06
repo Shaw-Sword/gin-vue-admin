@@ -1,5 +1,6 @@
 package mcpTool
 
+/* 2025-11-06
 import (
 	"context"
 	"encoding/json"
@@ -163,3 +164,4 @@ func (a *ApiLister) getGinApis() ([]ApiInfo, error) {
 
 	return result, nil
 }
+*/

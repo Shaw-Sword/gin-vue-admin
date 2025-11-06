@@ -1,5 +1,6 @@
 package captcha
 
+/* 2025-11-06
 import (
 	"context"
 	"time"
@@ -59,3 +60,4 @@ func (rs *RedisStore) Verify(id, answer string, clear bool) bool {
 	v := rs.Get(key, clear)
 	return v == answer
 }
+*/

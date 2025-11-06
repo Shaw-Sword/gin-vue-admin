@@ -1,5 +1,6 @@
 package utils
 
+/* 2025-11-06
 import (
 	"errors"
 	"os"
@@ -110,3 +111,4 @@ func RemoveChunk(FileMd5 string) error {
 	err := os.RemoveAll(breakpointDir + FileMd5)
 	return err
 }
+*/

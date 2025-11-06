@@ -1,5 +1,6 @@
 package system
 
+/* 2025-11-06
 import (
 	"context"
 	"fmt"
@@ -119,3 +120,4 @@ func (i *initDictDetail) DataInserted(ctx context.Context) bool {
 	}
 	return len(dict.SysDictionaryDetails) > 0 && dict.SysDictionaryDetails[0].Label == "tinyint"
 }
+*/

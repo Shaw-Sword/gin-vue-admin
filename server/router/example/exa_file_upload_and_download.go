@@ -1,5 +1,6 @@
 package example
 
+/* 2025-11-06
 import (
 	"github.com/gin-gonic/gin"
 )
@@ -20,3 +21,4 @@ func (e *FileUploadAndDownloadRouter) InitFileUploadAndDownloadRouter(Router *gi
 		fileUploadAndDownloadRouter.POST("importURL", exaFileUploadAndDownloadApi.ImportURL)                               // 导入URL
 	}
 }
+*/

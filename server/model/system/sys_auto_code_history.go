@@ -1,5 +1,6 @@
 package system
 
+/* 2025-11-06
 import (
 	"github.com/flipped-aurora/gin-vue-admin/server/global"
 	"gorm.io/gorm"
@@ -66,3 +67,4 @@ func (s *SysAutoCodeHistory) BeforeCreate(db *gorm.DB) error {
 func (s *SysAutoCodeHistory) TableName() string {
 	return "sys_auto_code_histories"
 }
+*/

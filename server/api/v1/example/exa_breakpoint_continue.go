@@ -1,5 +1,6 @@
 package example
 
+/* 2025-11-06
 import (
 	"fmt"
 	"io"
@@ -148,3 +149,4 @@ func (b *FileUploadAndDownloadApi) RemoveChunk(c *gin.Context) {
 	}
 	response.OkWithMessage("缓存切片删除成功", c)
 }
+*/

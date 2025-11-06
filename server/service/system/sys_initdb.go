@@ -113,7 +113,10 @@ func (initDBService *InitDBService) InitDB(conf request.InitDB) (err error) {
 	// 	initHandler = NewMssqlInitHandler()
 	// 	ctx = context.WithValue(ctx, "dbtype", "mssql")
 	default:
-		initHandler = NewMysqlInitHandler()
+		// 2025-11-06
+		//initHandler = NewMysqlInitHandler()
+
+		initHandler = NewSqliteInitHandler()
 		ctx = context.WithValue(ctx, "dbtype", "sqlite")
 	}
 	ctx, err = initHandler.EnsureDB(ctx, &conf)

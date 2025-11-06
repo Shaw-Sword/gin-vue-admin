@@ -1,5 +1,6 @@
 package upload
 
+/* 2025-11-06
 import (
 	"mime/multipart"
 
@@ -67,3 +68,4 @@ func (o *Obs) DeleteFile(key string) error {
 	}
 	return nil
 }
+*/
