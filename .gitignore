@@ -2,7 +2,9 @@
 /web/dist
 /server/dist
 
-.rar
+
+/server/*.rar
+/server/*.exe
 .exe
 .DS_Store
 
