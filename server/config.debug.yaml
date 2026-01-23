@@ -2,7 +2,7 @@
 # 扫码对比相关配置
 scan-compare:
   expires-time: 2h              # 扫码后信息缓存时长
-  eio-ip: 192.168.0.120
+  eio-ip: 192.168.1.120
   eio-port: 502
 
   # sql server
