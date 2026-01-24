@@ -16,7 +16,7 @@ export const useAppStore = defineStore('app', () => {
     layout_side_width: 256,
     layout_side_collapsed_width: 80,
     layout_side_item_height: 48,
-    show_watermark: true,
+    show_watermark: false,
     side_mode: 'normal',
     // 页面过渡动画配置
     transition_type: 'slide',
@@ -104,7 +104,7 @@ export const useAppStore = defineStore('app', () => {
     config.global_size = e
   }
 
-  const baseCoinfg = {
+  const baseConfig = {
     weakness: false,
     grey: false,
     primaryColor: '#3b82f6',
@@ -113,7 +113,7 @@ export const useAppStore = defineStore('app', () => {
     layout_side_width: 256,
     layout_side_collapsed_width: 80,
     layout_side_item_height: 48,
-    show_watermark: true,
+    show_watermark: false,
     side_mode: 'normal',
     // 页面过渡动画配置
     transition_type: 'slide',
@@ -121,8 +121,8 @@ export const useAppStore = defineStore('app', () => {
   }
 
   const resetConfig = () => {
-    for (let baseCoinfgKey in baseCoinfg) {
-      config[baseCoinfgKey] = baseCoinfg[baseCoinfgKey]
+    for (let baseConfigKey in baseConfig) {
+      config[baseConfigKey] = baseConfig[baseConfigKey]
     }
   }
 
