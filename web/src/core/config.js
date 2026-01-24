@@ -6,7 +6,7 @@ import packageInfo from '../../package.json'
 const greenText = (text) => `\x1b[32m${text}\x1b[0m`
 
 export const config = {
-  appName: 'Gin-Vue-Admin',
+  appName: '江阳磁材自动称量系统任务发布端',
   showViteLogo: false,
   keepAliveTabs: false,
   logs: []

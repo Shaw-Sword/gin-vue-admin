@@ -12,17 +12,21 @@
           class="z-[999] pt-12 pb-10 md:w-96 w-full rounded-lg flex flex-col justify-between box-border"
         >
           <div>
-            <div class="flex items-center justify-center">
-              <Logo :size="6" />
-            </div>
-            <div class="mb-9">
+            <div class="mb-5">
               <p class="text-center text-4xl font-bold">
                 {{ $GIN_VUE_ADMIN.appName }}
               </p>
               <p class="text-center text-sm font-normal text-gray-500 mt-2.5">
-                A management platform using Golang and Vue
+                <!--                A management platform using Golang and Vue-->
               </p>
             </div>
+            <div class="flex items-center justify-center">
+              <Logo :size="6" />
+            </div>
+            <div class="flex items-center justify-center">
+              <div class="w-2 h-4"></div>
+            </div>
+
             <el-form
               ref="loginForm"
               :model="loginFormData"
@@ -79,7 +83,7 @@
                   >登 录</el-button
                 >
               </el-form-item>
-              <el-form-item class="mb-6">
+              <el-form-item class="mb-6" v-if="false">
                 <el-button
                   class="shadow shadow-active h-11 w-full"
                   type="primary"
@@ -101,12 +105,12 @@
       </div>
     </div>
 
-    <BottomInfo class="left-0 right-0 absolute bottom-3 mx-auto w-full z-20">
+    <BottomInfo v-if="false" class="left-0 right-0 absolute bottom-3 mx-auto w-full z-20">
       <div class="links items-center justify-center gap-2 hidden md:flex">
-        <a href="https://www.gin-vue-admin.com/" target="_blank">
+        <a href="https://www.AAA.com/" target="_blank">
           <img src="@/assets/docs.png" class="w-8 h-8" alt="文档" />
         </a>
-        <a href="https://support.qq.com/product/371961" target="_blank">
+        <a href="https://" target="_blank">
           <img src="@/assets/kefu.png" class="w-8 h-8" alt="客服" />
         </a>
         <a

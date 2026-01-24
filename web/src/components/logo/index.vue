@@ -58,7 +58,7 @@ watchEffect(async () => {
 const SPACING = 16
 function getSize() {
   return {
-    width: `${props.size * SPACING}px`,
+    width: `${props.size*2 * SPACING}px`,
     height: `${props.size * SPACING}px`,
   }
 }
