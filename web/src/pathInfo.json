@@ -76,6 +76,8 @@
   "/src/view/systemTools/sysError/sysError.vue": "SysError",
   "/src/view/systemTools/system/system.vue": "Config",
   "/src/view/systemTools/version/version.vue": "SysVersion",
+  "/src/view/test_task/dtask/dtask.vue": "BTask",
+  "/src/view/test_task/dtask/dtaskForm.vue": "BTaskForm",
   "/src/plugin/announcement/form/info.vue": "InfoForm",
   "/src/plugin/announcement/view/info.vue": "Info",
   "/src/plugin/email/view/index.vue": "Email"

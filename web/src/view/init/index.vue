@@ -164,14 +164,14 @@
   const out = ref(false)
 
   const form = reactive({
-    adminPassword: '123456',
-    dbType: 'mysql',
-    host: '127.0.0.1',
-    port: '3306',
-    userName: 'root',
-    password: '',
-    dbName: 'gva',
-    dbPath: ''
+          adminPassword: '123456',
+          dbType: 'sqlite',
+          host: '',
+          port: '',
+          userName: '',
+          password: '',
+          dbName: 'gva',
+          dbPath: '.'
   })
 
   const changeDB = (val) => {
@@ -235,19 +235,19 @@
           userName: '',
           password: '',
           dbName: 'gva',
-          dbPath: ''
+          dbPath: '.'
         })
         break
       default:
         Object.assign(form, {
           adminPassword: '123456',
-          dbType: 'mysql',
-          host: '127.0.0.1',
-          port: '3306',
-          userName: 'root',
+          dbType: 'sqlite',
+          host: '',
+          port: '',
+          userName: '',
           password: '',
           dbName: 'gva',
-          dbPath: ''
+          dbPath: '.'
         })
     }
   }

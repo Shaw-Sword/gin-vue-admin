@@ -7,7 +7,7 @@ aliyun-oss:
     base-path: yourBasePath
 autocode:
     web: web/src
-    root: C:\Users\zhfz-shaw\Desktop\Company\江阳\称重项目\Code\jy-weight-gva
+    root: B:\Code\Git\Go\gin-vue-admin
     server: server
     module: github.com/flipped-aurora/gin-vue-admin/server
     ai-path: ""
@@ -84,7 +84,7 @@ hua-wei-obs:
     access-key: you-access-key
     secret-key: you-secret-key
 jwt:
-    signing-key: 692b8fe8-1eab-4163-b64e-19ce48f0f701
+    signing-key: da1bafd4-0966-49c4-b8be-6037a824d0cf
     expires-time: 7d
     buffer-time: 1d
     issuer: qmPlus
@@ -213,7 +213,7 @@ sqlite:
     db-name: gva
     username: ""
     password: ""
-    path: .
+    path: B:\Code\Git\Go\gin-vue-admin\server
     engine: ""
     log-mode: error
     max-idle-conns: 10
@@ -241,7 +241,7 @@ tencent-cos:
     path-prefix: github.com/flipped-aurora/gin-vue-admin/server
 zap:
     level: info
-    prefix: '[jy-weight-gva]'
+    prefix: '[github.com/flipped-aurora/gin-vue-admin/server]'
     format: console
     director: log
     encode-level: LowercaseColorLevelEncoder
