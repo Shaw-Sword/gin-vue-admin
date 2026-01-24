@@ -59,7 +59,7 @@
     }
   }
 
-  getTableData()
+  // getTableData()
 </script>
 
 <style scoped lang="scss"></style>

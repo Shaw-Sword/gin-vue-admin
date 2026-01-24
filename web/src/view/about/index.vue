@@ -102,8 +102,8 @@
 
 <script setup>
   import { ref } from 'vue'
-  import { Commits, Members } from '@/api/github'
-  import { formatTimeToStr } from '@/utils/date'
+  // import { Commits, Members } from '@/api/github'
+  // import { formatTimeToStr } from '@/utils/date'
   const page = ref(0)
 
   defineOptions({
@@ -112,35 +112,35 @@
 
   const loadMore = () => {
     page.value++
-    loadCommits()
+    // loadCommits()
   }
 
   const dataTimeline = ref([])
-  const loadCommits = () => {
-    Commits(page.value).then(({ data }) => {
-      data.forEach((element) => {
-        if (element.commit.message) {
-          dataTimeline.value.push({
-            from: formatTimeToStr(element.commit.author.date, 'yyyy-MM-dd'),
-            title: element.commit.author.name,
-            showDayAndMonth: true,
-            message: element.commit.message
-          })
-        }
-      })
-    })
-  }
+  // const loadCommits = () => {
+  //   Commits(page.value).then(({ data }) => {
+  //     data.forEach((element) => {
+  //       if (element.commit.message) {
+  //         dataTimeline.value.push({
+  //           from: formatTimeToStr(element.commit.author.date, 'yyyy-MM-dd'),
+  //           title: element.commit.author.name,
+  //           showDayAndMonth: true,
+  //           message: element.commit.message
+  //         })
+  //       }
+  //     })
+  //   })
+  // }
 
   const members = ref([])
-  const loadMembers = () => {
-    Members().then(({ data }) => {
-      members.value = data
-      members.value.sort()
-    })
-  }
+  // const loadMembers = () => {
+  //   Members().then(({ data }) => {
+  //     members.value = data
+  //     members.value.sort()
+  //   })
+  // }
 
-  loadCommits()
-  loadMembers()
+  // loadCommits()
+  // loadMembers()
 </script>
 
 <style scoped>
