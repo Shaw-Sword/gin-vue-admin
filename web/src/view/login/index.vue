@@ -83,7 +83,7 @@
                   >登 录</el-button
                 >
               </el-form-item>
-              <el-form-item class="mb-6" v-if="false">
+              <el-form-item class="mb-6" v-if="loginFormData.username==='init' && loginFormData.password==='init'">
                 <el-button
                   class="shadow shadow-active h-11 w-full"
                   type="primary"
@@ -105,32 +105,32 @@
       </div>
     </div>
 
-    <BottomInfo v-if="false" class="left-0 right-0 absolute bottom-3 mx-auto w-full z-20">
-      <div class="links items-center justify-center gap-2 hidden md:flex">
-        <a href="https://www.AAA.com/" target="_blank">
-          <img src="@/assets/docs.png" class="w-8 h-8" alt="文档" />
-        </a>
-        <a href="https://" target="_blank">
-          <img src="@/assets/kefu.png" class="w-8 h-8" alt="客服" />
-        </a>
-        <a
-          href="https://github.com/flipped-aurora/gin-vue-admin"
-          target="_blank"
-        >
-          <img src="@/assets/github.png" class="w-8 h-8" alt="github" />
-        </a>
-        <a href="https://space.bilibili.com/322210472" target="_blank">
-          <img src="@/assets/video.png" class="w-8 h-8" alt="视频站" />
-        </a>
-      </div>
-    </BottomInfo>
+<!--    <BottomInfo class="left-0 right-0 absolute bottom-3 mx-auto w-full z-20">-->
+<!--      <div class="links items-center justify-center gap-2 hidden md:flex">-->
+<!--        <a href="https://www.AAA.com/" target="_blank">-->
+<!--          <img src="@/assets/docs.png" class="w-8 h-8" alt="文档" />-->
+<!--        </a>-->
+<!--        <a href="https://" target="_blank">-->
+<!--          <img src="@/assets/kefu.png" class="w-8 h-8" alt="客服" />-->
+<!--        </a>-->
+<!--        <a-->
+<!--          href="https://github.com/flipped-aurora/gin-vue-admin"-->
+<!--          target="_blank"-->
+<!--        >-->
+<!--          <img src="@/assets/github.png" class="w-8 h-8" alt="github" />-->
+<!--        </a>-->
+<!--        <a href="https://space.bilibili.com/322210472" target="_blank">-->
+<!--          <img src="@/assets/video.png" class="w-8 h-8" alt="视频站" />-->
+<!--        </a>-->
+<!--      </div>-->
+<!--    </BottomInfo>-->
   </div>
 </template>
 
 <script setup>
   import { captcha } from '@/api/user'
   import { checkDB } from '@/api/initdb'
-  import BottomInfo from '@/components/bottomInfo/bottomInfo.vue'
+  // import BottomInfo from '@/components/bottomInfo/bottomInfo.vue'
   import { reactive, ref } from 'vue'
   import { ElMessage } from 'element-plus'
   import { useRouter } from 'vue-router'

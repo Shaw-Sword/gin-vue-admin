@@ -2,6 +2,7 @@ package system
 
 import (
 	"context"
+
 	sysModel "github.com/flipped-aurora/gin-vue-admin/server/model/system"
 	"github.com/flipped-aurora/gin-vue-admin/server/service/system"
 	"github.com/flipped-aurora/gin-vue-admin/server/utils"
@@ -48,7 +49,7 @@ func (i *initUser) InitializeData(ctx context.Context) (next context.Context, er
 	ap := ctx.Value("adminPassword")
 	apStr, ok := ap.(string)
 	if !ok {
-		apStr = "123456"
+		apStr = "123456jy"
 	}
 
 	password := utils.BcryptHash(apStr)
@@ -59,7 +60,7 @@ func (i *initUser) InitializeData(ctx context.Context) (next context.Context, er
 			UUID:        uuid.New(),
 			Username:    "admin",
 			Password:    adminPassword,
-			NickName:    "Mr.奇淼",
+			NickName:    "超级管理员",
 			HeaderImg:   "https://qmplusimg.henrongyi.top/gva_header.jpg",
 			AuthorityId: 888,
 			Phone:       "17611111111",
