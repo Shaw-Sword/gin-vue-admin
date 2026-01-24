@@ -10,26 +10,26 @@
 </template>
 
 <script setup>
-  import { Commits } from '@/api/github'
-  import { formatTimeToStr } from '@/utils/date'
+  // import { Commits } from '@/api/github'
+  // import { formatTimeToStr } from '@/utils/date'
   import { ref, onMounted } from 'vue'
 
   const tableData = ref([])
 
-  const loadCommits = async () => {
-    const { data } = await Commits(1)
-    tableData.value = data.slice(0, 5).map((item, index) => {
-      return {
-        ranking: index + 1,
-        message: item.commit.message,
-        author: item.commit.author.name,
-        date: formatTimeToStr(item.commit.author.date, 'yyyy-MM-dd hh:mm:ss')
-      }
-    })
-  }
+  // const loadCommits = async () => {
+  //   const { data } = await Commits(1)
+  //   tableData.value = data.slice(0, 5).map((item, index) => {
+  //     return {
+  //       ranking: index + 1,
+  //       message: item.commit.message,
+  //       author: item.commit.author.name,
+  //       date: formatTimeToStr(item.commit.author.date, 'yyyy-MM-dd hh:mm:ss')
+  //     }
+  //   })
+  // }
 
   onMounted(() => {
-    loadCommits()
+    // loadCommits()
   })
 </script>
 
