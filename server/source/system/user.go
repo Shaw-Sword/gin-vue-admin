@@ -49,7 +49,7 @@ func (i *initUser) InitializeData(ctx context.Context) (next context.Context, er
 	ap := ctx.Value("adminPassword")
 	apStr, ok := ap.(string)
 	if !ok {
-		apStr = "123456jy" // 默认密码 如果前端初始化没传的话
+		apStr = "123456" // 默认密码 如果前端初始化没传的话
 	}
 
 	password := utils.BcryptHash(apStr)
