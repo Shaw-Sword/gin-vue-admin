@@ -2,6 +2,7 @@ package example
 
 import (
 	"context"
+
 	"github.com/flipped-aurora/gin-vue-admin/server/model/example"
 	"github.com/flipped-aurora/gin-vue-admin/server/service/system"
 	"github.com/pkg/errors"
@@ -43,8 +44,10 @@ func (i *initExaFileMysql) InitializeData(ctx context.Context) (context.Context,
 		return ctx, system.ErrMissingDBContext
 	}
 	entities := []example.ExaFileUploadAndDownload{
-		{Name: "10.png", Url: "https://qmplusimg.henrongyi.top/gvalogo.png", Tag: "png", Key: "158787308910.png"},
-		{Name: "logo.png", Url: "https://qmplusimg.henrongyi.top/1576554439myAvatar.png", Tag: "png", Key: "1587973709logo.png"},
+		{Name: "img.png", Url: "uploads/file/default_img.png", Tag: "png", Key: "20260124img.png"},
+		{Name: "logo.png", Url: "uploads/file/logo.png", Tag: "png", Key: "20260124logo.png"},
+		{Name: "man.png", Url: "uploads/file/default_man.png", Tag: "png", Key: "20260124man.png"},
+		{Name: "woman.png", Url: "uploads/file/default_woman.png", Tag: "png", Key: "20260124woman.png"},
 	}
 	if err := db.Create(&entities).Error; err != nil {
 		return ctx, errors.Wrap(err, example.ExaFileUploadAndDownload{}.TableName()+"表数据初始化失败!")
@@ -57,7 +60,7 @@ func (i *initExaFileMysql) DataInserted(ctx context.Context) bool {
 	if !ok {
 		return false
 	}
-	lookup := example.ExaFileUploadAndDownload{Name: "logo.png", Key: "1587973709logo.png"}
+	lookup := example.ExaFileUploadAndDownload{Name: "logo.png", Key: "20260124logo.png"}
 	if errors.Is(db.First(&lookup, &lookup).Error, gorm.ErrRecordNotFound) {
 		return false
 	}

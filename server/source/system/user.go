@@ -61,20 +61,20 @@ func (i *initUser) InitializeData(ctx context.Context) (next context.Context, er
 			Username:    "admin",
 			Password:    adminPassword,
 			NickName:    "超级管理员",
-			HeaderImg:   "https://qmplusimg.henrongyi.top/gva_header.jpg",
+			HeaderImg:   "uploads/file/default_img.png",
 			AuthorityId: 888,
-			Phone:       "17611111111",
-			Email:       "333333333@qq.com",
+			Phone:       "17388888888",
+			Email:       "1162084@qq.com",
 		},
 		{
 			UUID:        uuid.New(),
-			Username:    "a303176530",
+			Username:    "test01",
 			Password:    password,
 			NickName:    "用户1",
-			HeaderImg:   "https://qmplusimg.henrongyi.top/1572075907logo.png",
+			HeaderImg:   "uploads/file/default_man.png",
 			AuthorityId: 9528,
-			Phone:       "17611111111",
-			Email:       "333333333@qq.com"},
+			Phone:       "17388888888",
+			Email:       "1162084@qq.com"},
 	}
 	if err = db.Create(&entities).Error; err != nil {
 		return ctx, errors.Wrap(err, sysModel.SysUser{}.TableName()+"表数据初始化失败!")

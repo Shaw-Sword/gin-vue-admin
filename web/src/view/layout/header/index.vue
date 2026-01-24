@@ -53,7 +53,7 @@
             class="cursor-pointer flex justify-center items-center text-black dark:text-gray-100"
           >
             <CustomPic />
-            <span v-show="!isMobile" class="w-16">{{
+            <span v-show="!isMobile" class="w-20">{{
               userStore.userInfo.nickName
             }}</span>
             <el-icon>
