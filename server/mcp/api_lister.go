@@ -5,10 +5,10 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/flipped-aurora/gin-vue-admin/server/global"
-	"github.com/flipped-aurora/gin-vue-admin/server/model/system"
 	"github.com/mark3labs/mcp-go/mcp"
 	"go.uber.org/zap"
+	"gva/global"
+	"gva/model/system"
 )
 
 // 注册工具
@@ -54,7 +54,7 @@ func (a *ApiLister) New() mcp.Tool {
 - ginApis: gin路由中的API（仅包含路径和方法），需要AI根据路径自行揣摩路径的业务含义，例如：/api/user/:id 表示根据用户ID获取用户信息`),
 		mcp.WithString("_placeholder",
 			mcp.Description("占位符，防止json schema校验失败"),
-		),	
+		),
 	)
 }
 

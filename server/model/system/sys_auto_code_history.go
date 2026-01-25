@@ -1,8 +1,8 @@
 package system
 
 import (
-	"github.com/flipped-aurora/gin-vue-admin/server/global"
 	"gorm.io/gorm"
+	"gva/global"
 	"os"
 	"path"
 	"path/filepath"

@@ -7,8 +7,8 @@ import (
 	"reflect"
 	"strings"
 
-	"github.com/flipped-aurora/gin-vue-admin/server/global"
 	"go.uber.org/zap"
+	"gva/global"
 )
 
 //@author: [piexlmax](https://github.com/piexlmax)

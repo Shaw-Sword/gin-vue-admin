@@ -5,11 +5,11 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/flipped-aurora/gin-vue-admin/server/global"
-	"github.com/flipped-aurora/gin-vue-admin/server/model/common/request"
-	"github.com/flipped-aurora/gin-vue-admin/server/model/system"
-	systemRes "github.com/flipped-aurora/gin-vue-admin/server/model/system/response"
 	"gorm.io/gorm"
+	"gva/global"
+	"gva/model/common/request"
+	"gva/model/system"
+	systemRes "gva/model/system/response"
 )
 
 //@author: [piexlmax](https://github.com/piexlmax)

@@ -2,10 +2,10 @@ package initialize
 
 import (
 	oracle "github.com/dzwvip/gorm-oracle"
-	"github.com/flipped-aurora/gin-vue-admin/server/config"
-	"github.com/flipped-aurora/gin-vue-admin/server/global"
-	"github.com/flipped-aurora/gin-vue-admin/server/initialize/internal"
 	"gorm.io/gorm"
+	"gva/config"
+	"gva/global"
+	"gva/initialize/internal"
 )
 
 // GormOracle 初始化oracle数据库

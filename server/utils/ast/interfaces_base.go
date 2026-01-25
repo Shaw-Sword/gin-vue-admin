@@ -1,12 +1,12 @@
 package ast
 
 import (
-	"github.com/flipped-aurora/gin-vue-admin/server/global"
 	"github.com/pkg/errors"
 	"go/ast"
 	"go/format"
 	"go/parser"
 	"go/token"
+	"gva/global"
 	"io"
 	"os"
 	"path"

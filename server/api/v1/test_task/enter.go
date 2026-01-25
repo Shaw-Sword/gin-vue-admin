@@ -1,6 +1,6 @@
 package test_task
 
-import "github.com/flipped-aurora/gin-vue-admin/server/service"
+import "gva/service"
 
 type ApiGroup struct{ BTaskApi }
 

@@ -2,9 +2,9 @@ package example
 
 import (
 	"errors"
-	"github.com/flipped-aurora/gin-vue-admin/server/global"
-	"github.com/flipped-aurora/gin-vue-admin/server/model/example"
 	"gorm.io/gorm"
+	"gva/global"
+	"gva/model/example"
 )
 
 type AttachmentCategoryService struct{}

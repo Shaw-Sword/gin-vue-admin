@@ -2,10 +2,10 @@ package system
 
 import (
 	"context"
-	"github.com/flipped-aurora/gin-vue-admin/server/global"
-	"github.com/flipped-aurora/gin-vue-admin/server/model/system"
-	systemReq "github.com/flipped-aurora/gin-vue-admin/server/model/system/request"
 	"gorm.io/gorm"
+	"gva/global"
+	"gva/model/system"
+	systemReq "gva/model/system/request"
 )
 
 type SysVersionService struct{}

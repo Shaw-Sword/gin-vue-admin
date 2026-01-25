@@ -9,15 +9,15 @@ import (
 	"strings"
 	"text/template"
 
-	"github.com/flipped-aurora/gin-vue-admin/server/global"
-	common "github.com/flipped-aurora/gin-vue-admin/server/model/common/request"
-	model "github.com/flipped-aurora/gin-vue-admin/server/model/system"
-	"github.com/flipped-aurora/gin-vue-admin/server/model/system/request"
-	"github.com/flipped-aurora/gin-vue-admin/server/utils"
-	"github.com/flipped-aurora/gin-vue-admin/server/utils/ast"
-	"github.com/flipped-aurora/gin-vue-admin/server/utils/autocode"
 	"github.com/pkg/errors"
 	"gorm.io/gorm"
+	"gva/global"
+	common "gva/model/common/request"
+	model "gva/model/system"
+	"gva/model/system/request"
+	"gva/utils"
+	"gva/utils/ast"
+	"gva/utils/autocode"
 )
 
 var AutoCodePackage = new(autoCodePackage)

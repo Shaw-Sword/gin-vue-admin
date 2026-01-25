@@ -3,10 +3,10 @@ package internal
 import (
 	"time"
 
-	"github.com/flipped-aurora/gin-vue-admin/server/config"
 	"gorm.io/gorm"
 	"gorm.io/gorm/logger"
 	"gorm.io/gorm/schema"
+	"gva/config"
 )
 
 var Gorm = new(_gorm)

@@ -1,9 +1,9 @@
 package v1
 
 import (
-	"github.com/flipped-aurora/gin-vue-admin/server/api/v1/example"
-	"github.com/flipped-aurora/gin-vue-admin/server/api/v1/system"
-	"github.com/flipped-aurora/gin-vue-admin/server/api/v1/test_task"
+	"gva/api/v1/example"
+	"gva/api/v1/system"
+	"gva/api/v1/test_task"
 )
 
 var ApiGroupApp = new(ApiGroup)

@@ -1,6 +1,6 @@
 package test_task
 
-import api "github.com/flipped-aurora/gin-vue-admin/server/api/v1"
+import api "gva/api/v1"
 
 type RouterGroup struct{ BTaskRouter }
 

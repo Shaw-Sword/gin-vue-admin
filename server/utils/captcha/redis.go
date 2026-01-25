@@ -4,8 +4,8 @@ import (
 	"context"
 	"time"
 
-	"github.com/flipped-aurora/gin-vue-admin/server/global"
 	"go.uber.org/zap"
+	"gva/global"
 )
 
 func NewDefaultRedisStore() *RedisStore {

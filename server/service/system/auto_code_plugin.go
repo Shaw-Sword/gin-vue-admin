@@ -13,15 +13,15 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/flipped-aurora/gin-vue-admin/server/global"
-	"github.com/flipped-aurora/gin-vue-admin/server/model/system"
-	"github.com/flipped-aurora/gin-vue-admin/server/model/system/request"
-	"github.com/flipped-aurora/gin-vue-admin/server/utils"
-	"github.com/flipped-aurora/gin-vue-admin/server/utils/ast"
 	"github.com/mholt/archives"
 	cp "github.com/otiai10/copy"
 	"github.com/pkg/errors"
 	"go.uber.org/zap"
+	"gva/global"
+	"gva/model/system"
+	"gva/model/system/request"
+	"gva/utils"
+	"gva/utils/ast"
 )
 
 var AutoCodePlugin = new(autoCodePlugin)

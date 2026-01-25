@@ -3,10 +3,10 @@ package system
 import (
 	"context"
 
-	sysModel "github.com/flipped-aurora/gin-vue-admin/server/model/system"
-	"github.com/flipped-aurora/gin-vue-admin/server/service/system"
 	"github.com/pkg/errors"
 	"gorm.io/gorm"
+	sysModel "gva/model/system"
+	"gva/service/system"
 )
 
 const initOrderMenuAuthority = initOrderMenu + initOrderAuthority

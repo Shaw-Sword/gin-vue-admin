@@ -3,11 +3,11 @@ package initialize
 import (
 	"context"
 	adapter "github.com/casbin/gorm-adapter/v3"
-	"github.com/flipped-aurora/gin-vue-admin/server/model/example"
-	sysModel "github.com/flipped-aurora/gin-vue-admin/server/model/system"
-	"github.com/flipped-aurora/gin-vue-admin/server/plugin/announcement/model"
-	"github.com/flipped-aurora/gin-vue-admin/server/service/system"
 	"gorm.io/gorm"
+	"gva/model/example"
+	sysModel "gva/model/system"
+	"gva/plugin/announcement/model"
+	"gva/service/system"
 )
 
 const initOrderEnsureTables = system.InitOrderExternal - 1

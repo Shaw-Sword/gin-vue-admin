@@ -2,9 +2,9 @@ package internal
 
 import (
 	"fmt"
-	"github.com/flipped-aurora/gin-vue-admin/server/config"
-	"github.com/flipped-aurora/gin-vue-admin/server/global"
 	"gorm.io/gorm/logger"
+	"gva/config"
+	"gva/global"
 )
 
 type Writer struct {

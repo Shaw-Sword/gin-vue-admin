@@ -4,22 +4,22 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-	"github.com/flipped-aurora/gin-vue-admin/server/utils/autocode"
 	"go/ast"
 	"go/format"
 	"go/parser"
 	"go/token"
+	"gva/utils/autocode"
 	"os"
 	"path/filepath"
 	"strings"
 	"text/template"
 
-	"github.com/flipped-aurora/gin-vue-admin/server/global"
-	model "github.com/flipped-aurora/gin-vue-admin/server/model/system"
-	"github.com/flipped-aurora/gin-vue-admin/server/model/system/request"
-	utilsAst "github.com/flipped-aurora/gin-vue-admin/server/utils/ast"
 	"github.com/pkg/errors"
 	"gorm.io/gorm"
+	"gva/global"
+	model "gva/model/system"
+	"gva/model/system/request"
+	utilsAst "gva/utils/ast"
 )
 
 var AutoCodeTemplate = new(autoCodeTemplate)
