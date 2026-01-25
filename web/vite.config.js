@@ -39,9 +39,12 @@ export default ({ mode }) => {
 
   const rollupOptions = {
     output: {
-      entryFileNames: 'assets/087AC4D233B64EB0[name].[hash].js',
-      chunkFileNames: 'assets/087AC4D233B64EB0[name].[hash].js',
-      assetFileNames: 'assets/087AC4D233B64EB0[name].[hash].[ext]'
+      // entryFileNames: 'assets/087AC4D233B64EB0[name].[hash].js',
+      // chunkFileNames: 'assets/087AC4D233B64EB0[name].[hash].js',
+      // assetFileNames: 'assets/087AC4D233B64EB0[name].[hash].[ext]'
+      entryFileNames: 'assets/[name].[hash].js',
+      chunkFileNames: 'assets/[name].[hash].js',
+      assetFileNames: 'assets/[name].[hash].[ext]'
     }
   }
 
@@ -96,6 +99,7 @@ export default ({ mode }) => {
       manifest: false, // 是否产出manifest.json
       sourcemap: false, // 是否产出sourcemap.json
       outDir: outDir, // 产出目录
+      emptyOutDir: true,  // 非项目目录会有警告,加上这个清空的
       terserOptions: {
         compress: {
           //生产环境时移除console
@@ -132,7 +136,7 @@ export default ({ mode }) => {
         symbolId: '[name]'
         // 例如 lock.svg -> <symbol id="lock">
       }),
-      [Banner(`\n Build based on gin-vue-admin \n Time : ${timestamp}`)],
+      [Banner(`\n Build Time : ${timestamp}`)],
       VueFilePathPlugin('./src/pathInfo.json'),
       UnoCSS()
     ]

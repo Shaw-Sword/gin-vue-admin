@@ -7,7 +7,7 @@ aliyun-oss:
     base-path: yourBasePath
 autocode:
     web: web/src
-    root: C:\Users\zhfz-shaw\Desktop\Company\江阳\称重项目\Code\jy-weight-gva
+    root: B:\Code\Git\Go\gin-vue-admin
     server: server
     module: github.com/flipped-aurora/gin-vue-admin/server
     ai-path: ""
@@ -84,7 +84,7 @@ hua-wei-obs:
     access-key: you-access-key
     secret-key: you-secret-key
 jwt:
-    signing-key: 692b8fe8-1eab-4163-b64e-19ce48f0f701
+    signing-key: 63971db7-31b8-4c6d-8a7d-1bad7fd49cca
     expires-time: 7d
     buffer-time: 1d
     issuer: qmPlus
@@ -223,7 +223,7 @@ sqlite:
 system:
     db-type: sqlite
     oss-type: local
-    router-prefix: "/api"
+    router-prefix: /api
     addr: 8888
     iplimit-count: 15000
     iplimit-time: 3600
