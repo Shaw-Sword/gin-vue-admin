@@ -3,12 +3,12 @@ package system
 import (
 	"context"
 
-	sysModel "github.com/flipped-aurora/gin-vue-admin/server/model/system"
-	"github.com/flipped-aurora/gin-vue-admin/server/service/system"
-	"github.com/flipped-aurora/gin-vue-admin/server/utils"
 	"github.com/google/uuid"
 	"github.com/pkg/errors"
 	"gorm.io/gorm"
+	sysModel "gva/model/system"
+	"gva/service/system"
+	"gva/utils"
 )
 
 const initOrderUser = initOrderAuthority + 1

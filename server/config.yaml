@@ -9,7 +9,7 @@ autocode:
     web: web/src
     root: B:\Code\Git\Go\gin-vue-admin
     server: server
-    module: github.com/flipped-aurora/gin-vue-admin/server
+    module: gva
     ai-path: ""
 aws-s3:
     bucket: xxxxx-10005608
@@ -18,7 +18,7 @@ aws-s3:
     secret-id: your-secret-id
     secret-key: your-secret-key
     base-url: https://gin.vue.admin
-    path-prefix: github.com/flipped-aurora/gin-vue-admin/server
+    path-prefix: gva
     s3-force-path-style: false
     disable-ssl: false
 captcha:
@@ -238,7 +238,7 @@ tencent-cos:
     secret-id: your-secret-id
     secret-key: your-secret-key
     base-url: https://gin.vue.admin
-    path-prefix: github.com/flipped-aurora/gin-vue-admin/server
+    path-prefix: gva
 zap:
     level: info
     prefix: '[jy-weight-gva]'

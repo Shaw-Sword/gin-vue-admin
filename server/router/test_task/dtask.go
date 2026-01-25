@@ -1,8 +1,8 @@
 package test_task
 
 import (
-	"github.com/flipped-aurora/gin-vue-admin/server/middleware"
 	"github.com/gin-gonic/gin"
+	"gva/middleware"
 )
 
 type BTaskRouter struct{}

@@ -4,13 +4,13 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/flipped-aurora/gin-vue-admin/server/docs"
-	"github.com/flipped-aurora/gin-vue-admin/server/global"
-	"github.com/flipped-aurora/gin-vue-admin/server/middleware"
-	"github.com/flipped-aurora/gin-vue-admin/server/router"
 	"github.com/gin-gonic/gin"
 	swaggerFiles "github.com/swaggo/files"
 	ginSwagger "github.com/swaggo/gin-swagger"
+	"gva/docs"
+	"gva/global"
+	"gva/middleware"
+	"gva/router"
 )
 
 type justFilesFilesystem struct {
