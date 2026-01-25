@@ -48,7 +48,7 @@
             without-padding
             custom-class="overflow-hidden"
           >
-            <gva-banner />
+<!--            <gva-banner />-->
           </gva-card>
         </div>
       </div>

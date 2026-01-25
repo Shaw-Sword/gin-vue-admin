@@ -7,13 +7,14 @@ import * as fs from 'fs'
 import vuePlugin from '@vitejs/plugin-vue'
 import vueDevTools from 'vite-plugin-vue-devtools'
 import VueFilePathPlugin from './vitePlugin/componentName/index.js'
-import { svgBuilder } from 'vite-auto-import-svg'
+// import { svgBuilder } from 'vite-auto-import-svg'  // 注入了meta和授权 换官方的
+import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 import { AddSecret } from './vitePlugin/secret'
 import UnoCSS from '@unocss/vite'
 
 // @see https://cn.vitejs.dev/config/
 export default ({ mode }) => {
-  AddSecret('')
+  AddSecret('jy')
   const NODE_ENV = mode || 'development'
   const envFiles = [`.env.${NODE_ENV}`]
   for (const file of envFiles) {
@@ -46,7 +47,7 @@ export default ({ mode }) => {
 
   const base = "/"
   const root = "./"
-  const outDir = "dist"
+  const outDir = "../server/dist"
 
   const config = {
     base: base, // 编译后js导入的资源路径
@@ -76,8 +77,10 @@ export default ({ mode }) => {
           // 需要代理的路径   例如 '/api'
           target: `${process.env.VITE_BASE_PATH}:${process.env.VITE_SERVER_PORT}/`, // 代理到 目标路径
           changeOrigin: true,
-          rewrite: (path) =>
-            path.replace(new RegExp('^' + process.env.VITE_BASE_API), '')
+          // rewrite: (path) =>
+          //   path.replace(new RegExp('^' + process.env.VITE_BASE_API), '')
+          // 不再移除 /api 前缀 ,后端开启了全局/api开头的接口路径
+          rewrite: (path) => path, // 或者直接删除这一行（默认就是不改路径）
         },
          "/plugin": {
           // 需要代理的路径   例如 '/api'
@@ -118,7 +121,17 @@ export default ({ mode }) => {
         ]
       }),
       vuePlugin(),
-      svgBuilder(['./src/plugin/','./src/assets/icons/'],base, outDir,'assets', NODE_ENV),
+      // svgBuilder(['./src/plugin/','./src/assets/icons/'],base, outDir,'assets', NODE_ENV), // 去掉,注入了东西,换官方的了
+      createSvgIconsPlugin({
+        // 放 svg 的目录（可以多个）
+        iconDirs: [
+          path.resolve(process.cwd(), 'src/assets/icons')
+        ],
+
+        // symbolId 规则（⚠️ 很重要）
+        symbolId: '[name]'
+        // 例如 lock.svg -> <symbol id="lock">
+      }),
       [Banner(`\n Build based on gin-vue-admin \n Time : ${timestamp}`)],
       VueFilePathPlugin('./src/pathInfo.json'),
       UnoCSS()
